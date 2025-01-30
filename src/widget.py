@@ -30,3 +30,14 @@ def mask_account_card(input_long_data:str) -> str:
 
     return long_input_masked
 
+
+def get_date(long_date_format:str) -> str:
+    """Функция принимает на вход строку с датой в формате "2024-03-11T02:26:18.671407"
+    и возвращает строку с датой в формате "ДД.ММ.ГГГГ" ("11.03.2024")."""
+    initial_date = long_date_format[:10]
+    year = initial_date[:4]
+    month = initial_date[5:7]
+    day = initial_date[8:10]
+    short_date = day + "." + month + "." + year
+    return short_date
+
