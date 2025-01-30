@@ -1,11 +1,10 @@
-from src.masks import get_mask_card_number, get_mask_account
+from src.masks import get_mask_account, get_mask_card_number
 
 
-def mask_account_card(input_long_data:str) -> str:
-    """Функция, которая принимает один аргумент — строку, 
-        содержащую тип и номер карты или счета, и возвращает строку
-        с замаскированным номером"""
-    long_input_masked = ""
+def mask_account_card(input_long_data: str) -> str:
+    """Функция, которая принимает один аргумент — строку,
+    содержащую тип и номер карты или счета, и возвращает строку
+    с замаскированным номером"""
     # переводим вход в нижний регистр
     input_long_data_low = input_long_data.lower()
     # превращаем строку в лист
@@ -31,7 +30,7 @@ def mask_account_card(input_long_data:str) -> str:
     return long_input_masked
 
 
-def get_date(long_date_format:str) -> str:
+def get_date(long_date_format: str) -> str:
     """Функция принимает на вход строку с датой в формате "2024-03-11T02:26:18.671407"
     и возвращает строку с датой в формате "ДД.ММ.ГГГГ" ("11.03.2024")."""
     initial_date = long_date_format[:10]
@@ -40,4 +39,3 @@ def get_date(long_date_format:str) -> str:
     day = initial_date[8:10]
     short_date = day + "." + month + "." + year
     return short_date
-

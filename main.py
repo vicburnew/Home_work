@@ -1,12 +1,12 @@
 from src.masks import get_mask_account, get_mask_card_number
-from src.widget import mask_account_card, get_date
+from src.widget import get_date, mask_account_card
 
-# print(get_mask_card_number(7000792289606361))
+print(get_mask_card_number(7000792289606361))
 # 7000792289606361     # входной аргумент
 # 7000 79** **** 6361  # выход функции
 
 
-# print(get_mask_account(73654108430135874305))
+print(get_mask_account(73654108430135874305))
 # 73654108430135874305  # входной аргумент
 # **4305  # выход функции
 
