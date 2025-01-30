@@ -20,11 +20,17 @@ def mask_account_card(input_long_data:str) -> str:
         input_data_list[-1] = mask_1
         long_input_masked_low = " ".join(input_data_list)
         long_input_masked = long_input_masked_low.title()
+    else:
+        mask_2 = get_mask_account(num_code)
+        input_data_list[-1] = mask_2
+        long_input_masked_low = " ".join(input_data_list)
+        long_input_masked = long_input_masked_low.title()
+
         print(long_input_masked)
 
     return long_input_masked
 
-mask_account_card("Visa Platinum 7000792289606361")
+mask_account_card("Счет 73654108430135874305")
 # Пример для карты
 # Visa Platinum 7000792289606361  # входной аргумент
 # Visa Platinum 7000 79** **** 6361  # выход функции
