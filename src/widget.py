@@ -51,11 +51,23 @@ def get_date(long_date_format: str) -> str:
         raise TypeError("Ошибка типа данных - требуется формат -Строка-")
 
     long_date_norm = long_date_format.strip()
+
+    if len(long_date_norm) != 26:
+        raise ValueError("Неверный тип ввода данных")
+
+    if long_date_norm[10] != "T":
+        raise ValueError("Неверный тип ввода данных")
+
+    if long_date_norm[13] != ":":
+        raise ValueError("Неверный тип ввода данных")
+
+    if long_date_norm[16] != ":":
+        raise ValueError("Неверный тип ввода данных")
+
+    if long_date_norm[19] != ".":
+        raise ValueError("Неверный тип ввода данных")
+
     initial_date = long_date_norm[:10]
-
-    if len(initial_date) != 10:
-        raise ValueError("Неверный тип ввода данных- введите дату в формате ГГГГ-ММ-ДД")
-
     year = initial_date[:4]
     month = initial_date[5:7]
     day = initial_date[8:10]
