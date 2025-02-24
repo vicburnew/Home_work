@@ -27,3 +27,23 @@ def test_mask_account_card_negative_wrong_type_0(card_num):
     with pytest.raises(TypeError):
         mask_account_card(card_num)
 
+
+@pytest.mark.parametrize("card_num", [
+    ("567"),
+    ("123253346364645645645664"),
+    ("bdasd 1111222233334444"),
+])
+def test_mask_account_card_negative_wrong_type_1(card_num):
+    """Отрицательное тестирование с использованием параметрирования на вызов исключения ValueError"""
+    with pytest.raises(ValueError):
+        mask_account_card(card_num)
+
+
+@pytest.mark.parametrize("card_num", [
+    ("")
+])
+def test_mask_account_card_negative_wrong_type_2(card_num):
+    """Отрицательное тестирование с использованием параметрирования на вызов исключения IndexError"""
+    with pytest.raises(IndexError):
+        mask_account_card(card_num)
+

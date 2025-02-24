@@ -1,4 +1,5 @@
 from src.masks import get_mask_account, get_mask_card_number
+# from tests.conftest import card_types
 
 
 def mask_account_card(input_long_data: str) -> str:
@@ -7,7 +8,7 @@ def mask_account_card(input_long_data: str) -> str:
     с замаскированным номером"""
 
     if not isinstance(input_long_data, str):
-            raise TypeError("Ошибка типа данных")
+        raise TypeError("Ошибка типа данных - требуется формат -Строка-")
 
     # переводим вход в нижний регистр
     input_long_data_low = input_long_data.lower()
@@ -16,6 +17,14 @@ def mask_account_card(input_long_data: str) -> str:
     # вырезаем номер карты или счета
     num_code = int(input_data_list[-1])
     # проверяем, что у нас было на входе - карта или счет
+
+    card_types = ["счет", "visa", "mir", "maestro", "mastercard"]
+    if input_data_list[0] not in card_types:
+        raise ValueError("Неверный тип ввода данных- введите слово Счет или название карты")
+
+    if len(input_long_data) == 0:
+        raise IndexError('Неверный номер карты - введите данные в корректном формате')
+
     if input_data_list[0] != "счет":
         # если была карта, то вызываем функцию маскировки номера карты, на
         # выходе получаем маску номера карты
