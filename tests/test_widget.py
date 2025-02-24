@@ -1,6 +1,6 @@
 import pytest
 
-from src.widget import mask_account_card
+from src.widget import mask_account_card, get_date
 
 
 # Тестирование функции mask_account_card
@@ -55,4 +55,44 @@ def test_mask_account_card_negative_wrong_type_2(card_num):
     """Отрицательное тестирование с использованием параметрирования на вызов исключения IndexError"""
     with pytest.raises(IndexError):
         mask_account_card(card_num)
+
+
+# Тестирование функции get_date
+
+@pytest.mark.parametrize("date, expected",
+    [
+        ("2021-03-11T02:26:18.671407", "11.03.2021"),
+        (" 2024-03-11T02:26:18.671407", "11.03.2024"),
+        (" 2025-06-13 T02:26:18.671407", "13.06.2025"),
+        ("2024-03-11 ..", "11.03.2024"),
+    ],
+)
+def test_get_date_positive(date, expected):
+    """Положительное тестирование с использованием параметрирования"""
+    assert get_date(date) == expected
+
+
+# Отрицательное тестирование на несоответствие типа ввода
+@pytest.mark.parametrize("date", [
+    (11032024),
+    (),
+    (11.03),
+])
+def test_get_date_negative_wrong_type_0(date):
+    """Отрицательное тестирование с использованием параметрирования на вызов исключения TypeError"""
+    with pytest.raises(TypeError):
+        get_date(date)
+
+
+@pytest.mark.parametrize("date",
+    [
+    ("11"),
+    ("2024"),
+    ("03-"),
+    ("")
+    ])
+def test_get_date_negative_wrong_type_1(date):
+    """Отрицательное тестирование с использованием параметрирования на вызов исключения ValueError"""
+    with pytest.raises(ValueError):
+        get_date(date)
 

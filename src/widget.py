@@ -46,9 +46,19 @@ def mask_account_card(input_long_data: str) -> str:
 def get_date(long_date_format: str) -> str:
     """Функция принимает на вход строку с датой в формате "2024-03-11T02:26:18.671407"
     и возвращает строку с датой в формате "ДД.ММ.ГГГГ" ("11.03.2024")."""
-    initial_date = long_date_format[:10]
+
+    if not isinstance(long_date_format, str):
+        raise TypeError("Ошибка типа данных - требуется формат -Строка-")
+
+    long_date_norm = long_date_format.strip()
+    initial_date = long_date_norm[:10]
+
+    if len(initial_date) != 10:
+        raise ValueError("Неверный тип ввода данных- введите дату в формате ГГГГ-ММ-ДД")
+
     year = initial_date[:4]
     month = initial_date[5:7]
     day = initial_date[8:10]
     short_date = day + "." + month + "." + year
     return short_date
+
