@@ -5,15 +5,15 @@ def get_mask_card_number(card_number: int) -> str:
     if not isinstance(card_number, int):
             raise TypeError("Ошибка типа данных")
 
-    # if tax_rate < 0 or tax_rate >= 100:
-    #     raise ValueError('Неверный налоговый процент')
-    #
-    # if price <= 0:
-    #     raise ValueError('Неверная цена')
-
-
 
     card_number_str = str(card_number)
+
+    if len(card_number_str) == 0:
+        raise TypeError('Неверный номер карты')
+
+    if len(card_number_str) > 16:
+        raise ValueError('Неверный номер карты')
+
     group_1 = card_number_str[:4] + " "
     group_2 = card_number_str[4:8]
     group_3 = "**** "
