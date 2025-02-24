@@ -5,13 +5,12 @@ def get_mask_card_number(card_number: int) -> str:
     if not isinstance(card_number, int):
             raise TypeError("Ошибка типа данных")
 
-
     card_number_str = str(card_number)
 
     if len(card_number_str) == 0:
         raise TypeError('Неверный номер карты')
 
-    if len(card_number_str) > 16:
+    if len(card_number_str) != 16:
         raise ValueError('Неверный номер карты')
 
     group_1 = card_number_str[:4] + " "

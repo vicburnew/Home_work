@@ -1,4 +1,5 @@
-#Тестирование функции get_mask_card_number
+###### Тестирование функции get_mask_card_number #######
+
 import pytest
 from src.masks import get_mask_card_number
 
@@ -31,3 +32,10 @@ def test_get_mask_card_number_negative_incorrect_len_2():
     with pytest.raises(ValueError):
         get_mask_card_number(11112222333344445)
 
+def test_get_mask_card_number_negative_incorrect_len_3():
+    """Тестируем некорректную длину ввода - номер слишком короткий"""
+    with pytest.raises(ValueError):
+        get_mask_card_number(111122223333)
+
+
+##### Тестирование функции get_mask_account ######
