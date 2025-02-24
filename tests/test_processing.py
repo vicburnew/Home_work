@@ -13,3 +13,9 @@ def test_filter_by_state_posit_2(list_of_dict_fixt_initial, list_of_dict_fixt_ca
     """Положительное тестирование с использованием фикстур, флаг = CANCELED"""
     assert filter_by_state(list_of_dict_fixt_initial, "CANCELED") == list_of_dict_fixt_cancel
 
+def test_filter_by_state_posit_3(list_of_dict_fixt_no_state):
+    """Отрицательное тестирование с использованием фикстур, частичное отсутствие флагов"""
+    with pytest.raises(ValueError):
+        filter_by_state(list_of_dict_fixt_no_state)
+
+
