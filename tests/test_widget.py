@@ -9,8 +9,9 @@ from src.widget import mask_account_card
     "card_num, expected",
     [
         ("Счет 73654108430135874305", "Счет **4305"),
+        (" Счет 73654108430135874305", "Счет **4305"),
         ("Visa Platinum 7000792289606361", "Visa Platinum 7000 79** **** 6361"),
-        ("Visa 7000792289606361", "Visa 7000 79** **** 6361"),
+        (" Visa 7000792289606361", "Visa 7000 79** **** 6361"),
         ("Mir 7000792289606361", "Mir 7000 79** **** 6361"),
         ("Maestro 1596837868705199", "Maestro 1596 83** **** 5199"),
     ],
@@ -21,7 +22,11 @@ def test_mask_account_card_positive(card_num, expected):
 
 
 # Отрицательное тестирование на несоответствие типа ввода
-@pytest.mark.parametrize("card_num", [(567), (), (7.02)])
+@pytest.mark.parametrize("card_num", [
+    (567),
+    (),
+    (7.02),
+])
 def test_mask_account_card_negative_wrong_type_0(card_num):
     """Отрицательное тестирование с использованием параметрирования на вызов исключения TypeError"""
     with pytest.raises(TypeError):
@@ -32,6 +37,10 @@ def test_mask_account_card_negative_wrong_type_0(card_num):
     ("567"),
     ("123253346364645645645664"),
     ("bdasd 1111222233334444"),
+    ("Maestro 15968378687051991"),
+    ("Visa 700079228960636"),
+    ("Счет 736541084301358743"),
+    ("Счет "),
 ])
 def test_mask_account_card_negative_wrong_type_1(card_num):
     """Отрицательное тестирование с использованием параметрирования на вызов исключения ValueError"""
