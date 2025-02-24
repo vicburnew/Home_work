@@ -12,30 +12,27 @@ def test_get_mask_card_number_positive(card_num, expected):
     """Положительное тестирование с использованием параметрирования"""
     assert get_mask_card_number(card_num) == expected
 
-def test_get_mask_card_number_negative_wrong_type_1():
-    """Тестируем ввод строки"""
+## Отрицательное тестирование на несоответствие типа
+@pytest.mark.parametrize("card_num", [
+    ("7000792289606361"),
+    (),
+    (7.02)
+])
+def test_get_mask_card_number_negative_wrong_type_0(card_num):
+    """Отрицательное тестирование с использованием параметрирования на вызов исключения TypeError"""
     with pytest.raises(TypeError):
-        get_mask_card_number("qweer")
+        get_mask_card_number(card_num)
 
-def test_get_mask_card_number_negative_wrong_type_2():
-    """Тестируем ввод float"""
-    with pytest.raises(TypeError):
-        get_mask_card_number(7.02)
-
-def test_get_mask_card_number_negative_incorrect_len_1():
-    """Тестируем некорректную длину ввода - номер не введен"""
-    with pytest.raises(TypeError):
-        get_mask_card_number()
-
-def test_get_mask_card_number_negative_incorrect_len_2():
-    """Тестируем некорректную длину ввода - номер слишком длинный"""
+## Отрицательное тестирование на несоответствие длины
+@pytest.mark.parametrize("card_num", [
+    (11112222333344445),
+    (111122223333),
+    (1)
+])
+def test_get_mask_card_number_negative_incorrect_len_0(card_num):
+    """Отрицательное тестирование с использованием параметрирования на вызов исключения ValueError"""
     with pytest.raises(ValueError):
-        get_mask_card_number(11112222333344445)
-
-def test_get_mask_card_number_negative_incorrect_len_3():
-    """Тестируем некорректную длину ввода - номер слишком короткий"""
-    with pytest.raises(ValueError):
-        get_mask_card_number(111122223333)
+        get_mask_card_number(card_num)
 
 
 ##### Тестирование функции get_mask_account ######
