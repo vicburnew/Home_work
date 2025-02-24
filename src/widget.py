@@ -5,6 +5,10 @@ def mask_account_card(input_long_data: str) -> str:
     """Функция, которая принимает один аргумент — строку,
     содержащую тип и номер карты или счета, и возвращает строку
     с замаскированным номером"""
+
+    if not isinstance(input_long_data, str):
+            raise TypeError("Ошибка типа данных")
+
     # переводим вход в нижний регистр
     input_long_data_low = input_long_data.lower()
     # превращаем строку в лист
