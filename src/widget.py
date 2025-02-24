@@ -39,7 +39,6 @@ def mask_account_card(input_long_data: str) -> str:
         input_data_list[-1] = mask_2
         long_input_masked_low = " ".join(input_data_list)
         long_input_masked = long_input_masked_low.title()
-
     return long_input_masked
 
 
