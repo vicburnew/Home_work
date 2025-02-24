@@ -1,6 +1,18 @@
 def get_mask_card_number(card_number: int) -> str:
     """Функция принимает на вход номер карты в виде числа
     и возвращает маску номера по правилу XXXX XX** **** XXXX"""
+
+    if not isinstance(card_number, int):
+            raise TypeError("Ошибка типа данных")
+
+    # if tax_rate < 0 or tax_rate >= 100:
+    #     raise ValueError('Неверный налоговый процент')
+    #
+    # if price <= 0:
+    #     raise ValueError('Неверная цена')
+
+
+
     card_number_str = str(card_number)
     group_1 = card_number_str[:4] + " "
     group_2 = card_number_str[4:8]
