@@ -7,8 +7,8 @@ def get_mask_card_number(card_number: int) -> str:
 
     card_number_str = str(card_number)
 
-    if len(card_number_str) == 0:
-        raise TypeError('Неверный номер карты')
+    # if len(card_number_str) == 0:
+    #     raise TypeError('Неверный номер карты')
 
     if len(card_number_str) != 16:
         raise ValueError('Неверный номер карты')
@@ -25,6 +25,17 @@ def get_mask_card_number(card_number: int) -> str:
 def get_mask_account(user_account: int) -> str:
     """Функция принимает на вход номер счета в виде числа и
     возвращает маску номера по правилу **XXXX"""
+
+    if not isinstance(user_account, int):
+            raise TypeError("Ошибка типа данных")
+
     account_str = str(user_account)
+
+    # if len(account_str) == 0:
+    #     raise TypeError('Неверный номер карты')
+
+    if len(account_str) != 20:
+        raise ValueError('Неверный номер карты')
+
     account_mask = "**" + account_str[-4:]
     return account_mask
