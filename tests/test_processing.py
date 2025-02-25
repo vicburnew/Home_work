@@ -1,6 +1,7 @@
 import pytest
 
 from src.processing import filter_by_state, sort_by_date
+from src.widget import get_date
 from tests.conftest import list_of_dict_fixt_equaldates_sort_asc, list_of_dict_fixt_wrong_state
 
 
@@ -41,8 +42,13 @@ def test_sort_by_date_positive_equaldates_asc(list_of_dict_fixt_equaldates_initi
     """Положительное тестирование с использованием фикстур при наличии одинаковых дат"""
     assert sort_by_date(list_of_dict_fixt_equaldates_initial, False) == list_of_dict_fixt_equaldates_sort_asc
 
-def test_sort_by_date_positive_equaldates_asc(list_of_dict_fixt_equaldates_initial, list_of_dict_fixt_equaldates_sort_desc):
+def test_sort_by_date_positive_equaldates_desc(list_of_dict_fixt_equaldates_initial, list_of_dict_fixt_equaldates_sort_desc):
     """Положительное тестирование с использованием фикстур при наличии одинаковых дат"""
     assert sort_by_date(list_of_dict_fixt_equaldates_initial) == list_of_dict_fixt_equaldates_sort_desc
+
+def test_sort_by_date_negative_1(list_of_dict_fixt_wrong_date):
+    """Отрицательно тестирование с использованием фикстур на проверку некорректности даты"""
+    with pytest.raises(ValueError):
+        sort_by_date(list_of_dict_fixt_wrong_date)
 
 

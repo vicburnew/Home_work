@@ -1,3 +1,6 @@
+from src.widget import get_date
+
+
 def filter_by_state(list_of_dict: list[dict], state_by_default: str = "EXECUTED") -> list[dict]:
     """Функция принимает список словарей и опционально значение для ключа state
     (по умолчанию 'EXECUTED'). Функция возвращает новый список словарей, содержащий
@@ -21,6 +24,10 @@ def sort_by_date(list_of_dict: list[dict], sort_type: bool = True) -> list[dict]
     """Функция принимает на вход список словарей и необязательный параметр,
     задающий порядок сортировки (по умолчанию — убывание).
     Функция возвращает новый список, отсортированный по дате."""
+
+    for dict in list_of_dict:
+        get_date(dict["date"])
+
     list_of_dict_sorted = sorted(list_of_dict, key=lambda x: (x["date"], x["id"]), reverse=sort_type)
     return list_of_dict_sorted
 

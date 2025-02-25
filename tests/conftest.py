@@ -88,6 +88,15 @@ def list_of_dict_fixt_equaldates_sort_asc():
         {'id': 939719570, 'state': 'EXECUTED', 'date': '2019-07-03T18:35:29.512364'}
         ]
 
+@pytest.fixture
+def list_of_dict_fixt_wrong_date():
+    return [
+        {'id': 41428829, 'state': 'EXECUTED', 'date': '20190703T18:35:29.512364'},
+        {'id': 594226727, 'state': 'CANCELED', 'date': '264'},
+        {'id': 615064591, 'state': 'CANCELED', 'date': '20118:35:29.512364'},
+        {'id': 939719570, 'state': 'EXECUTED', 'date': '2019-07-03T1829.512364'}
+        ]
+
 
 
 
