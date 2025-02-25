@@ -24,8 +24,8 @@ def sort_by_date(list_of_dict: list[dict], sort_type: bool = True) -> list[dict]
     задающий порядок сортировки (по умолчанию — убывание).
     Функция возвращает новый список, отсортированный по дате."""
 
-    for dict in list_of_dict:
-        get_date(dict["date"])
+    for dict_ in list_of_dict:
+        get_date(dict_.get("date"))
 
     list_of_dict_sorted = sorted(list_of_dict, key=lambda x: (x["date"], x["id"]), reverse=sort_type)
     return list_of_dict_sorted
