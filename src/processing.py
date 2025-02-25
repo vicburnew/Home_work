@@ -9,7 +9,6 @@ def filter_by_state(list_of_dict: list[dict], state_by_default: str = "EXECUTED"
     new_list = []
     list_of_states = ["EXECUTED", "CANCELED"]
 
-
     for dict_ in list_of_dict:
         if dict_.get("state") not in list_of_states:
             raise ValueError("Неправильный статус флаге state")
@@ -30,4 +29,3 @@ def sort_by_date(list_of_dict: list[dict], sort_type: bool = True) -> list[dict]
 
     list_of_dict_sorted = sorted(list_of_dict, key=lambda x: (x["date"], x["id"]), reverse=sort_type)
     return list_of_dict_sorted
-

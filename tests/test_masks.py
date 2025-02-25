@@ -4,6 +4,7 @@ from src.masks import get_mask_account, get_mask_card_number
 
 # Тестирование функции get_mask_card_number #######
 
+
 @pytest.mark.parametrize(
     "card_num, expected",
     [

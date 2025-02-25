@@ -1,4 +1,5 @@
 from src.masks import get_mask_account, get_mask_card_number
+
 # from tests.conftest import card_types
 
 
@@ -23,7 +24,7 @@ def mask_account_card(input_long_data: str) -> str:
         raise ValueError("Неверный тип ввода данных- введите слово Счет или название карты")
 
     if len(input_long_data) == 0:
-        raise IndexError('Неверный номер карты - введите данные в корректном формате')
+        raise IndexError("Неверный номер карты - введите данные в корректном формате")
 
     if input_data_list[0] != "счет":
         # если была карта, то вызываем функцию маскировки номера карты, на
@@ -72,4 +73,3 @@ def get_date(long_date_format: str) -> str:
     day = initial_date[8:10]
     short_date = day + "." + month + "." + year
     return short_date
-

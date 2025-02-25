@@ -3,7 +3,7 @@ def get_mask_card_number(card_number: int) -> str:
     и возвращает маску номера по правилу XXXX XX** **** XXXX"""
 
     if not isinstance(card_number, int):
-            raise TypeError("Ошибка типа данных")
+        raise TypeError("Ошибка типа данных")
 
     card_number_str = str(card_number)
 
@@ -11,7 +11,7 @@ def get_mask_card_number(card_number: int) -> str:
     #     raise TypeError('Неверный номер карты')
 
     if len(card_number_str) != 16:
-        raise ValueError('Неверный номер карты')
+        raise ValueError("Неверный номер карты")
 
     group_1 = card_number_str[:4] + " "
     group_2 = card_number_str[4:8]
@@ -27,7 +27,7 @@ def get_mask_account(user_account: int) -> str:
     возвращает маску номера по правилу **XXXX"""
 
     if not isinstance(user_account, int):
-            raise TypeError("Ошибка типа данных")
+        raise TypeError("Ошибка типа данных")
 
     account_str = str(user_account)
 
@@ -35,7 +35,7 @@ def get_mask_account(user_account: int) -> str:
     #     raise TypeError('Неверный номер карты')
 
     if len(account_str) != 20:
-        raise ValueError('Неверный номер карты')
+        raise ValueError("Неверный номер карты")
 
     account_mask = "**" + account_str[-4:]
     return account_mask
