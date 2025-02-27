@@ -41,5 +41,5 @@ def test_transaction_descriptions(transactions, descriptions):
 def test_transaction_descriptions_2():
     """Отрицательный тест на пустой список"""
     a = transaction_descriptions([])
-    with pytest.raises(NameError):
+    with pytest.raises(TypeError):
         list(next(a))
