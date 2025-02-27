@@ -21,7 +21,8 @@ def test_filter_by_currency_3(empty_list):
         list(next(a))
 
 def test_filter_by_currency_4(transactions_no_curr):
-    """Отрицательный тест на проверку отсутствие транзакций в заданной валюте """
+    """Отрицательный тест на проверку отсутствие транзакций в заданной валюте
+    или списка без соответствующих валютных операций"""
     a = filter_by_currency(transactions_no_curr, "USD")
     with pytest.raises(TypeError):
         a = filter_by_currency(transactions_no_curr, "USD")
