@@ -43,3 +43,4 @@ def test_transaction_descriptions_2():
     a = transaction_descriptions([])
     with pytest.raises(TypeError):
         list(next(a))
+
