@@ -1,5 +1,8 @@
-from src.generators import filter_by_currency
+from src.generators import filter_by_currency, transaction_descriptions
 import pytest
+
+from tests.conftest import transactions
+
 
 # Тестирование функции test_filter_by_currency
 
@@ -28,3 +31,15 @@ def test_filter_by_currency_4(transactions_no_curr):
         a = filter_by_currency(transactions_no_curr, "USD")
         list(next(a))
 
+# Тестирование функции transaction_descriptions
+
+def test_transaction_descriptions(transactions, descriptions):
+    """Положительный тест на возврат корректных описаний для каждой транзакции"""
+    a = transaction_descriptions(transactions)
+    assert list(next(a)) == descriptions
+
+def test_transaction_descriptions_2():
+    """Отрицательный тест на пустой список"""
+    a = transaction_descriptions([])
+    with pytest.raises(NameError):
+        list(next(a))

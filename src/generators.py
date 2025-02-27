@@ -1,4 +1,5 @@
 from locale import currency
+from unittest import removeResult
 
 transactions_1 = (
     [
@@ -101,7 +102,15 @@ def filter_by_currency(list_of_dict: list[dict], currency: str) -> dict:
 #
 # print(list(next(a)))
 
+def transaction_descriptions(list_of_dict: list[dict]) -> str:
+    """Генератор, который принимает список словарей с транзакциями и
+    возвращает описание каждой операции по очереди"""
+    result = (i["description"] for i in list_of_dict)
+    yield result
 
+# a = transaction_descriptions(transactions_1)
+#
+# print(list(next(a)))
 
 
 
