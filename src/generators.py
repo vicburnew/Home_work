@@ -113,6 +113,28 @@ def transaction_descriptions(list_of_dict: list[dict]) -> str:
     yield result
 
 
+def card_number_generator(start: int, end:int) -> str:
+    """который выдает номера банковских карт в формате XXXX XXXX XXXX XXXX, где X  —
+    цифра номера карты. Генератор может сгенерировать номера карт в заданном
+    диапазоне от 0000 0000 0000 0001 до 9999 9999 9999 9999."""
+    null_number = "0000000000000000"
+    result = ""
 
+    if start <= 0 or end > 9999999999999999:
+        raise (ValueError, "Неправильный номер")
+
+    for card_num in range(start, end + 1):
+        card_num_gen = (null_number[:-len(str(card_num))] + str(card_num))
+        result = card_num_gen[:4] + " " + card_num_gen[4:8] + " " + card_num_gen[8:12] + " " + card_num_gen[12:]
+        # print(result)
+        yield result
+
+for card_number in card_number_generator(1, 999999):
+    print(card_number)
+
+#
+# a = card_number_generator(1, 5)
+#
+# print(next(a))
 
 

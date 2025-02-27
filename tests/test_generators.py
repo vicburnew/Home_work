@@ -1,7 +1,7 @@
-from src.generators import filter_by_currency, transaction_descriptions
+from src.generators import filter_by_currency, transaction_descriptions, card_number_generator
 import pytest
 
-from tests.conftest import transactions
+from tests.conftest import transactions, cards_1
 
 
 # Тестирование функции test_filter_by_currency
@@ -43,4 +43,18 @@ def test_transaction_descriptions_2():
     a = transaction_descriptions([])
     with pytest.raises(TypeError):
         list(next(a))
+
+# Тестирование функции card_number_generator
+
+# @pytest.mark.parametrize("start, stop", "result",
+#                          [(1, 2, "0000 0000 0000 0001")])
+def test_card_number_generator():
+    for card_number_2 in card_number_generator(1, 5):
+        assert card_number_2 == [
+                                            "0000 0000 0000 0001",
+                                            "0000 0000 0000 0002",
+                                            "0000 0000 0000 0003",
+                                            "0000 0000 0000 0004",
+                                            "0000 0000 0000 0005"]
+
 
