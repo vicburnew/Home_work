@@ -87,13 +87,13 @@ def filter_by_currency(list_of_dict: list[dict], currency: str) -> dict:
         Функция возвращает итератор, который поочередно выдает транзакции,
         где валюта операции соответствует заданной (например, USD)"""
 
-    result = filter(lambda x:(x["operationAmount"]["currency"]["name"] == currency), list_of_dict)
+    result = filter(lambda x:(x["operationAmount"]["currency"]["code"] == currency), list_of_dict)
     yield result
 
-# a = filter_by_currency(transactions_1, "USD")
-#
-# print(list(next(a)))
-#
+a = filter_by_currency(transactions_1, "RUB")
+
+print(list(next(a)))
+
 
 
 
