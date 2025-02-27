@@ -86,13 +86,15 @@ def filter_by_currency(list_of_dict: list[dict], currency: str) -> dict:
     """ функция принимает на вход список словарей, представляющих транзакции.
         Функция возвращает итератор, который поочередно выдает транзакции,
         где валюта операции соответствует заданной (например, USD)"""
+    if len(list_of_dict) == 0:
+        raise (TypeError, "Некорректные входные данные")
 
     result = filter(lambda x:(x["operationAmount"]["currency"]["code"] == currency), list_of_dict)
     yield result
 
-a = filter_by_currency(transactions_1, "RUB")
-
-print(list(next(a)))
+# a = filter_by_currency(transactions_1, "RUB")
+#
+# print(list(next(a)))
 
 
 
