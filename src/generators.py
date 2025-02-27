@@ -89,6 +89,11 @@ def filter_by_currency(list_of_dict: list[dict], currency: str) -> dict:
     if len(list_of_dict) == 0:
         raise (TypeError, "Некорректные входные данные")
 
+    list_of_curr = ["USD", "RUB", "EUR"]
+    for dict in list_of_dict:
+        if dict["operationAmount"]["currency"]["code"] not in list_of_curr:
+            raise (TypeError, "Неправильный тип валюты")
+
     result = filter(lambda x:(x["operationAmount"]["currency"]["code"] == currency), list_of_dict)
     yield result
 
