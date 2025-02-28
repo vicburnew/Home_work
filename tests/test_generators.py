@@ -8,6 +8,7 @@ from src.generators import card_number_generator, filter_by_currency, transactio
 # Тестирование функции test_filter_by_currency
 
 
+
 def test_filter_by_currency(transactions, transactions_USD_1):
     """Положительный тест на проверку фильтрации по USD"""
     a = filter_by_currency(transactions, "USD")
