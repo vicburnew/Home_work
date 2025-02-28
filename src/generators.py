@@ -30,7 +30,7 @@ def transaction_descriptions(list_of_dict: list[dict]) -> str:
 
 
 def card_number_generator(start: int, end: int) -> str:
-    """который выдает номера банковских карт в формате XXXX XXXX XXXX XXXX, где X  —
+    """Генератор, который выдает номера банковских карт в формате XXXX XXXX XXXX XXXX, где X  —
     цифра номера карты. Генератор может сгенерировать номера карт в заданном
     диапазоне от 0000 0000 0000 0001 до 9999 9999 9999 9999."""
 
