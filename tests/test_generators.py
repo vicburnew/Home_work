@@ -9,33 +9,36 @@ from src.generators import card_number_generator, filter_by_currency, transactio
 
 
 
-def test_filter_by_currency(transactions, transactions_USD_1):
+def test_filter_by_currency_USD_1(transactions, transactions_USD_1):
     """Положительный тест на проверку фильтрации по USD"""
     a = filter_by_currency(transactions, "USD")
-    assert list(next(a)) == transactions_USD_1
+    assert next(a) == transactions_USD_1
 
+def test_filter_by_currency_USD_2(transactions, transactions_USD_1, transactions_USD_2):
+    """Положительный тест на проверку фильтрации по USD"""
+    a = filter_by_currency(transactions, "USD")
+    assert next(a) == transactions_USD_1
+    assert next(a) == transactions_USD_2
 
-def test_filter_by_currency_2(transactions, transactions_RUB):
+def test_filter_by_currency_RUB_1(transactions, transactions_RUB_1):
     """Положительный тест на проверку фильтрации по рублям"""
     a = filter_by_currency(transactions, "RUB")
-    assert list(next(a)) == transactions_RUB
-
+    assert next(a) == transactions_RUB_1
 
 @pytest.mark.parametrize("empty_list", [{}])
 def test_filter_by_currency_3(empty_list):
     """Отрицательный тест - пустой список на входе"""
     with pytest.raises(TypeError):
         a = filter_by_currency(empty_list, "EUR")
-        list(next(a))
-
+        next(a)
 
 def test_filter_by_currency_4(transactions_no_curr):
     """Отрицательный тест на проверку отсутствие транзакций в заданной валюте
     или списка без соответствующих валютных операций"""
-    a = filter_by_currency(transactions_no_curr, "USD")
     with pytest.raises(TypeError):
         a = filter_by_currency(transactions_no_curr, "USD")
-        list(next(a))
+        next(a)
+
 
 
 # Тестирование функции transaction_descriptions

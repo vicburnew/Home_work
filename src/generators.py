@@ -64,9 +64,9 @@ def filter_by_currency(list_of_dict: list[dict], currency: str) -> iter:
     # result = filter(lambda x: (x["operationAmount"]["currency"]["code"] == currency), list_of_dict)
     return result
 
-usd_transactions = filter_by_currency(list_1, "USD")
-for _ in range(1):
-    print(next(usd_transactions))
+# usd_transactions = filter_by_currency(list_1, "RUB")
+# for _ in range(3):
+#     print(next(usd_transactions))
 
 
 def transaction_descriptions(list_of_dict: list[dict]) -> str:
