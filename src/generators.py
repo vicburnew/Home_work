@@ -1,6 +1,6 @@
 
 
-def filter_by_currency(list_of_dict: list[dict], currency: str) -> dict:
+def filter_by_currency(list_of_dict: list[dict], currency: str) -> any:
     """функция принимает на вход список словарей, представляющих транзакции.
     Функция возвращает итератор, который поочередно выдает транзакции,
     где валюта операции соответствует заданной (например, USD)"""
@@ -14,7 +14,7 @@ def filter_by_currency(list_of_dict: list[dict], currency: str) -> dict:
             raise (TypeError, "Неправильный тип валюты")
 
     result = filter(lambda x: (x["operationAmount"]["currency"]["code"] == currency), list_of_dict)
-    yield result
+    return result
 
 
 def transaction_descriptions(list_of_dict: list[dict]) -> str:
