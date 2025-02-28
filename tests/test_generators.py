@@ -1,20 +1,23 @@
 from src.generators import filter_by_currency, transaction_descriptions, card_number_generator
 import pytest
 
-from tests.conftest import transactions, cards_1
+from tests.conftest import transactions
 
 
 # Тестирование функции test_filter_by_currency
+
 
 def test_filter_by_currency(transactions, transactions_USD_1):
     """Положительный тест на проверку фильтрации по USD"""
     a = filter_by_currency(transactions, "USD")
     assert list(next(a)) == transactions_USD_1
 
+
 def test_filter_by_currency_2(transactions, transactions_RUB):
     """Положительный тест на проверку фильтрации по рублям"""
     a = filter_by_currency(transactions, "RUB")
     assert list(next(a)) == transactions_RUB
+
 
 @pytest.mark.parametrize("empty_list", [{}])
 def test_filter_by_currency_3(empty_list):
@@ -22,6 +25,7 @@ def test_filter_by_currency_3(empty_list):
     with pytest.raises(TypeError):
         a = filter_by_currency(empty_list, "EUR")
         list(next(a))
+
 
 def test_filter_by_currency_4(transactions_no_curr):
     """Отрицательный тест на проверку отсутствие транзакций в заданной валюте
@@ -31,12 +35,15 @@ def test_filter_by_currency_4(transactions_no_curr):
         a = filter_by_currency(transactions_no_curr, "USD")
         list(next(a))
 
+
 # Тестирование функции transaction_descriptions
+
 
 def test_transaction_descriptions(transactions, descriptions):
     """Положительный тест на возврат корректных описаний для каждой транзакции"""
     a = transaction_descriptions(transactions)
     assert list(next(a)) == descriptions
+
 
 def test_transaction_descriptions_2():
     """Отрицательный тест на пустой список"""
@@ -44,32 +51,37 @@ def test_transaction_descriptions_2():
     with pytest.raises(TypeError):
         list(next(a))
 
+
 # Тестирование функции card_number_generator
+
 
 def test_card_number_generator():
     """Положительный тест №1"""
-    a = card_number_generator(1,3)
+    a = card_number_generator(1, 3)
     assert next(a) == "0000 0000 0000 0001"
     assert next(a) == "0000 0000 0000 0002"
     assert next(a) == "0000 0000 0000 0003"
 
+
 def test_card_number_generator_2():
     """Положительный тест №2"""
-    a = card_number_generator(99999997,99999999)
+    a = card_number_generator(99999997, 99999999)
     assert next(a) == "0000 0000 9999 9997"
     assert next(a) == "0000 0000 9999 9998"
     assert next(a) == "0000 0000 9999 9999"
 
+
 def test_card_number_generator_3():
     """Положительный тест №3"""
-    a = card_number_generator(999999999997,999999999999)
+    a = card_number_generator(999999999997, 999999999999)
     assert next(a) == "0000 9999 9999 9997"
     assert next(a) == "0000 9999 9999 9998"
     assert next(a) == "0000 9999 9999 9999"
 
+
 def test_card_number_generator_4():
     """Положительный тест №4"""
-    a = card_number_generator(9999999999999997,9999999999999999)
+    a = card_number_generator(9999999999999997, 9999999999999999)
     assert next(a) == "9999 9999 9999 9997"
     assert next(a) == "9999 9999 9999 9998"
     assert next(a) == "9999 9999 9999 9999"
@@ -81,11 +93,13 @@ def test_card_number_generator_5():
         a = card_number_generator(0, 0)
         print(next(a))
 
+
 def test_card_number_generator_6():
     """Отрицательный тест №2"""
     with pytest.raises(TypeError):
         a = card_number_generator(-1, 1)
         print(next(a))
+
 
 def test_card_number_generator_7():
     """Отрицательный тест №3"""
