@@ -8,11 +8,11 @@ from src.generators import card_number_generator, filter_by_currency, transactio
 # Тестирование функции test_filter_by_currency
 
 
-
 def test_filter_by_currency_USD_1(transactions, transactions_USD_1):
     """Положительный тест на проверку фильтрации по USD"""
     a = filter_by_currency(transactions, "USD")
     assert next(a) == transactions_USD_1
+
 
 def test_filter_by_currency_USD_2(transactions, transactions_USD_1, transactions_USD_2):
     """Положительный тест на проверку фильтрации по USD"""
@@ -20,10 +20,12 @@ def test_filter_by_currency_USD_2(transactions, transactions_USD_1, transactions
     assert next(a) == transactions_USD_1
     assert next(a) == transactions_USD_2
 
+
 def test_filter_by_currency_RUB_1(transactions, transactions_RUB_1):
     """Положительный тест на проверку фильтрации по рублям"""
     a = filter_by_currency(transactions, "RUB")
     assert next(a) == transactions_RUB_1
+
 
 @pytest.mark.parametrize("empty_list", [{}])
 def test_filter_by_currency_3(empty_list):
@@ -32,12 +34,14 @@ def test_filter_by_currency_3(empty_list):
         a = filter_by_currency(empty_list, "EUR")
         next(a)
 
+
 def test_filter_by_currency_4(transactions_no_curr):
     """Отрицательный тест на проверку отсутствие транзакций в заданной валюте
     или списка без соответствующих валютных операций"""
     with pytest.raises(TypeError):
         a = filter_by_currency(transactions_no_curr, "USD")
         next(a)
+
 
 def test_filter_by_currency_StopIteraction(transactions, transactions_USD_1, transactions_USD_2, transactions_USD_3):
     """Отрицательный тест на проверку исключения StopIteraction"""
@@ -49,7 +53,6 @@ def test_filter_by_currency_StopIteraction(transactions, transactions_USD_1, tra
         assert next(a) == transactions_USD_1
     except StopIteration:
         print("No more transactions")
-
 
 
 # Тестирование функции transaction_descriptions
