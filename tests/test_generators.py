@@ -1,7 +1,7 @@
 from src.generators import filter_by_currency, transaction_descriptions, card_number_generator
 import pytest
 
-from tests.conftest import transactions
+# from tests.conftest import transactions
 
 
 # Тестирование функции test_filter_by_currency

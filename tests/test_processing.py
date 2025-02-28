@@ -1,7 +1,6 @@
 import pytest
 
 from src.processing import filter_by_state, sort_by_date
-from tests.conftest import list_of_dict_fixt_equaldates_sort_asc, list_of_dict_fixt_wrong_state
 
 
 # Тестирование функции filter_by_state

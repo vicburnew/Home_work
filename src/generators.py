@@ -1,4 +1,3 @@
-from collections.abc import Generator
 
 
 def filter_by_currency(list_of_dict: list[dict], currency: str) -> dict:
