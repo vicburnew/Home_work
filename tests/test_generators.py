@@ -39,6 +39,17 @@ def test_filter_by_currency_4(transactions_no_curr):
         a = filter_by_currency(transactions_no_curr, "USD")
         next(a)
 
+def test_filter_by_currency_StopIteraction(transactions, transactions_USD_1, transactions_USD_2, transactions_USD_3):
+    """Отрицательный тест на проверку исключения StopIteraction"""
+    a = filter_by_currency(transactions, "USD")
+    try:
+        assert next(a) == transactions_USD_1
+        assert next(a) == transactions_USD_2
+        assert next(a) == transactions_USD_3
+        assert next(a) == transactions_USD_1
+    except StopIteration:
+        print("No more transactions")
+
 
 
 # Тестирование функции transaction_descriptions
