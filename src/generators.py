@@ -121,7 +121,7 @@ def card_number_generator(start: int, end:int) -> str:
     result = ""
 
     if start <= 0 or end > 9999999999999999:
-        raise (ValueError, "Неправильный номер")
+        raise (TypeError, "Неправильный номер")
 
     for card_num in range(start, end + 1):
         card_num_gen = (null_number[:-len(str(card_num))] + str(card_num))
@@ -129,7 +129,7 @@ def card_number_generator(start: int, end:int) -> str:
         # print(result)
         yield result
 
-for card_number in card_number_generator(1, 999999):
+for card_number in card_number_generator(1, 2):
     print(card_number)
 
 #

@@ -46,15 +46,49 @@ def test_transaction_descriptions_2():
 
 # Тестирование функции card_number_generator
 
-# @pytest.mark.parametrize("start, stop", "result",
-#                          [(1, 2, "0000 0000 0000 0001")])
 def test_card_number_generator():
-    for card_number_2 in card_number_generator(1, 5):
-        assert card_number_2 == [
-                                            "0000 0000 0000 0001",
-                                            "0000 0000 0000 0002",
-                                            "0000 0000 0000 0003",
-                                            "0000 0000 0000 0004",
-                                            "0000 0000 0000 0005"]
+    """Положительный тест №1"""
+    a = card_number_generator(1,3)
+    assert next(a) == "0000 0000 0000 0001"
+    assert next(a) == "0000 0000 0000 0002"
+    assert next(a) == "0000 0000 0000 0003"
+
+def test_card_number_generator_2():
+    """Положительный тест №2"""
+    a = card_number_generator(99999997,99999999)
+    assert next(a) == "0000 0000 9999 9997"
+    assert next(a) == "0000 0000 9999 9998"
+    assert next(a) == "0000 0000 9999 9999"
+
+def test_card_number_generator_3():
+    """Положительный тест №3"""
+    a = card_number_generator(999999999997,999999999999)
+    assert next(a) == "0000 9999 9999 9997"
+    assert next(a) == "0000 9999 9999 9998"
+    assert next(a) == "0000 9999 9999 9999"
+
+def test_card_number_generator_4():
+    """Положительный тест №4"""
+    a = card_number_generator(9999999999999997,9999999999999999)
+    assert next(a) == "9999 9999 9999 9997"
+    assert next(a) == "9999 9999 9999 9998"
+    assert next(a) == "9999 9999 9999 9999"
 
 
+def test_card_number_generator_5():
+    """Отрицательный тест №1"""
+    with pytest.raises(TypeError):
+        a = card_number_generator(0, 0)
+        print(next(a))
+
+def test_card_number_generator_6():
+    """Отрицательный тест №2"""
+    with pytest.raises(TypeError):
+        a = card_number_generator(-1, 1)
+        print(next(a))
+
+def test_card_number_generator_7():
+    """Отрицательный тест №3"""
+    with pytest.raises(TypeError):
+        a = card_number_generator(1, 99999999999999999)
+        print(next(a))
