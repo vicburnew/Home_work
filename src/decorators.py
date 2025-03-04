@@ -1,4 +1,4 @@
-def log(filename):
+def log(filename=""):
     """Декоратор, который автоматически логирует начало и конец выполнения функции,
     а также ее результаты или возникшие ошибки. Принимает необязательный аргумент
     filename, который определяет, куда будут записываться логи (в файл или в консоль).
@@ -13,7 +13,8 @@ def log(filename):
             result = function(*args, **kwargs)
             if filename:
                 with open (filename, "w", encoding="utf-8") as file:
-                    file.write(f"{function.__name__} OK")
+                    file.write(f"{function.__name__} the result is {result}, OK")
+            print(f"{function.__name__} the result is {result}, OK")
 
             return result
         return wrapper
