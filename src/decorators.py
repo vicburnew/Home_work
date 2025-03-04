@@ -20,13 +20,12 @@ def log(filename=""):
                     with open(filename, "w", encoding="utf-8") as file:
                         file.write(f"{function.__name__} the result is {result}, OK")
                 print(f"{function.__name__} the result is {result}, OK")
-            except:
+            except Exception:
                 if filename:
                     with open(filename, "w", encoding="utf-8") as file:
                         file.write(f"{function.__name__} error:{exception.__name__}. Inputs:{args}")
                 print(f"{function.__name__} error:{exception.__name__}. Inputs:{args}")
                 raise Exception
-
             return result
 
         return wrapper
