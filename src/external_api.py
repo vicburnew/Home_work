@@ -1,5 +1,4 @@
 import os
-from pprint import pprint
 
 from dotenv import load_dotenv
 import requests
@@ -17,24 +16,20 @@ def convert_currency_to_rub(transaction:dict)->float:
     load_dotenv()
     api_key = os.getenv("API_KEY")
 
+    if currency_code == "RUB":
+        rub_amount = round(float(currency_amount), 2)
+        return rub_amount
+
     url = "https://api.apilayer.com/exchangerates_data/convert"
     payload = {"amount": currency_amount, "from": currency_code, "to": "RUB"}
     headers = {"apikey": api_key}
     response = requests.get(url, headers=headers, params=payload)
     if response.status_code != 200:
-        return False
+        raise Exception ("проверьте параметры запроса и повторите его")
+
     result = response.json()
 
-    rur_amount = round(float(result["result"]),2)
+    rub_amount = round(float(result["result"]),2)
 
-    return rur_amount
-#
-# pprint(convert_currency_to_rub({
-#         "id": 939719570,
-#         "state": "EXECUTED",
-#         "date": "2018-06-30T02:08:58.425572",
-#         "operationAmount": {"amount": "9824.07", "currency": {"name": "USD", "code": "USD"}},
-#         "description": "Перевод организации",
-#         "from": "Счет 75106830613657916952",
-#         "to": "Счет 11776614605963066702",
-#     }))
+    return rub_amount
+

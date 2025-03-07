@@ -196,6 +196,17 @@ def transactions_USD_3():
         "to": "Visa Platinum 8990922113665229",
     }
 
+@pytest.fixture
+def transactions_eur_1():
+    return {
+        "id": 939719574,
+        "state": "EXECUTED",
+        "date": "2018-05-30T02:08:58.425572",
+        "operationAmount": {"amount": "9724.07", "currency": {"name": "EUR", "code": "EUR"}},
+        "description": "Перевод организации",
+        "from": "Счет 75106830613657916952",
+        "to": "Счет 11776614605963066702",
+    }
 
 @pytest.fixture
 def transactions_RUB_1():
