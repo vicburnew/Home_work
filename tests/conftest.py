@@ -270,3 +270,7 @@ def descriptions():
         "Перевод с карты на карту",
         "Перевод организации",
     ]
+
+@pytest.fixture
+def json_list_initial():
+    return []
