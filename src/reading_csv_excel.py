@@ -1,4 +1,3 @@
-from csv import excel
 
 import pandas as pd
 import csv
@@ -30,16 +29,11 @@ def read_excel_file(path_to_file: str) -> list[str]:
     Если файл пустой, содержит не список или не найден,
     функция возвращает пустой список."""
     full_path = path_to_file + "transactions_excel.xlsx"
+
     try:
-        try:
-            df_excel = pd.read_excel(full_path)
-            excel_list_result = df_excel.to_dict(orient="records")
-        except Exception as ex:
-            print(f"Ошибка чтения .excel файла, ошибка: {ex}")
-            excel_list_result = []
-    except FileNotFoundError as ex:
-        print(f"Неправильный путь к файлу или файл не найден, ошибка: {ex}")
+        df_excel = pd.read_excel(full_path)
+        excel_list_result = df_excel.to_dict(orient="records")
+    except Exception as ex:
+        print(f"Ошибка чтения .excel файла, ошибка: {ex}")
         excel_list_result = []
     return excel_list_result
-
-# print(read_excel_file("../data/"))

@@ -1189,3 +1189,9 @@ def mock_csv_fixt():
          'currency_code': 'PEN', 'from': 'Счет 58803664561298323391', 'to': 'Счет 39745660563456619397',
          'description': 'Перевод организации'}
     ]
+
+@pytest.fixture
+def mock_excel_fixt():
+    return [
+        {'id': '650703', 'state': 'EXECUTED', 'date': '2023-09-05T11:30:32Z'}
+    ]
