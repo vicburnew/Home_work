@@ -1,8 +1,8 @@
-2025-03-19 15:16:49,812 - utils - INFO - Начало, чтение файла 'operations.json'
-2025-03-19 15:16:49,813 - utils - INFO - Чтение файла 'operations.json' успешно
-2025-03-19 15:16:49,815 - utils - INFO - Начало, чтение файла 'operations.json'
-2025-03-19 15:16:49,815 - utils - ERROR - Ошибка чтения файла 'operations.json' - неправильное имя или путь к файлу, ошибка: [Errno 2] No such file or directory: '../ata/operations.json'
-2025-03-19 15:16:49,820 - utils - INFO - Начало, чтение файла 'operations.json'
-2025-03-19 15:16:49,820 - utils - ERROR - Ошибка чтения файла 'operations.json', ошибка: Expecting property name enclosed in double quotes: line 1 column 7 (char 6)
-2025-03-19 15:16:49,825 - utils - INFO - Начало, чтение файла 'operations.json'
-2025-03-19 15:16:49,825 - utils - ERROR - Ошибка чтения файла 'operations.json', ошибка: Expecting value: line 1 column 1 (char 0)
+2025-03-19 15:26:12,794 - utils - INFO - Начало, чтение файла 'operations.json'
+2025-03-19 15:26:12,795 - utils - INFO - Чтение файла 'operations.json' успешно
+2025-03-19 15:26:12,797 - utils - INFO - Начало, чтение файла 'operations.json'
+2025-03-19 15:26:12,797 - utils - ERROR - Ошибка чтения файла 'operations.json' - неправильное имя или путь к файлу, ошибка: [Errno 2] No such file or directory: '../ata/operations.json'
+2025-03-19 15:26:12,801 - utils - INFO - Начало, чтение файла 'operations.json'
+2025-03-19 15:26:12,802 - utils - ERROR - Ошибка чтения файла 'operations.json', ошибка: Expecting property name enclosed in double quotes: line 1 column 7 (char 6)
+2025-03-19 15:26:12,806 - utils - INFO - Начало, чтение файла 'operations.json'
+2025-03-19 15:26:12,807 - utils - ERROR - Ошибка чтения файла 'operations.json', ошибка: Expecting value: line 1 column 1 (char 0)

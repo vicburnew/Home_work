@@ -1,6 +1,6 @@
+import csv
 
 import pandas as pd
-import csv
 
 
 def read_csv_file(path_to_file: str) -> list[str]:
@@ -11,7 +11,7 @@ def read_csv_file(path_to_file: str) -> list[str]:
     full_path = path_to_file + "transactions.csv"
     try:
         try:
-            with open (full_path, encoding="utf-8") as file:
+            with open(full_path, encoding="utf-8") as file:
                 csv_read_obj = csv.DictReader(file, delimiter=";")
                 csv_list_result = [x for x in csv_read_obj]
         except Exception as ex:
