@@ -1,15 +1,21 @@
+import csv
+
+import src.reading_csv_excel
 from src.reading_csv_excel import read_csv_file
 from unittest.mock import patch, mock_open
 
 from tests.conftest import mock_csv_fixt
 
+# Тестирование функции read_csv_file
+
 mock_data = "id;state;date;amount;currency_name;currency_code;from;to;description\n650703;EXECUTED;2023-09-05T11:30:32Z;16210;Sol;PEN;Счет 58803664561298323391;Счет 39745660563456619397;Перевод организации"
 
 def test_read_csv_file_1(mock_csv_fixt):
     """Положительный тест на чтение csv файла"""
-    with patch("builtins.open", new_callable=mock_open, read_data=mock_data):
-        result = read_csv_file("./data/")
+    with patch("builtins.open", new_callable=mock_open, read_data=mock_data) as mock_file:
+        result = read_csv_file("fake.csv")
     assert result == mock_csv_fixt
+    mock_file.assert_called()
 
 def test_read_csv_file_2():
     """Отрицательный тест на открытие csv файла"""
@@ -18,6 +24,8 @@ def test_read_csv_file_2():
 
 def test_read_csv_file_3():
     """Отрицательный тест на открытие csv файла"""
-    with patch("builtins.open", new_callable=mock_open, read_data="..sd.sd."):
-        result = read_csv_file("./data/")
+    with patch("builtins.open", new_callable=mock_open, read_data="") as mock_file:
+        result = read_csv_file("fake.csv")
     assert result == []
+    mock_file.assert_called()
+

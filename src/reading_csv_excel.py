@@ -1,5 +1,3 @@
-import _csv
-from idlelib.iomenu import encoding
 
 import pandas as pd
 import csv
@@ -16,7 +14,7 @@ def read_csv_file(path_to_file: str) -> list[str]:
             with open (full_path, encoding="utf-8") as file:
                 csv_read_obj = csv.DictReader(file, delimiter=";")
                 csv_list_result = [x for x in csv_read_obj]
-        except _csv.Error as ex:
+        except csv.Error as ex:
             print(f"Ошибка чтения .csv файла, ошибка{ex}")
             csv_list_result = []
     except FileNotFoundError as ex:
@@ -24,3 +22,4 @@ def read_csv_file(path_to_file: str) -> list[str]:
         csv_list_result = []
 
     return csv_list_result
+
