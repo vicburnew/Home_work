@@ -1,5 +1,6 @@
 import json
 import logging
+import re
 
 # Создание объекта логера для записи событий
 logger = logging.getLogger("utils")
@@ -32,3 +33,4 @@ def read_json_file(path_to_file: str) -> list[dict]:
         list_result = []
 
     return list_result
+
