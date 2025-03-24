@@ -15,16 +15,6 @@ def test_filter_by_state_posit_2(list_of_dict_fixt_initial, list_of_dict_fixt_ca
     assert filter_by_state(list_of_dict_fixt_initial, "CANCELED") == list_of_dict_fixt_cancel
 
 
-def test_filter_by_state_negative_1(list_of_dict_fixt_no_state):
-    """Отрицательное тестирование с использованием фикстур, частичное отсутствие флагов"""
-    with pytest.raises(ValueError):
-        filter_by_state(list_of_dict_fixt_no_state)
-
-
-def test_filter_by_state_negative_2(list_of_dict_fixt_wrong_state):
-    """Отрицательное тестирование с использованием фикстур, неправильные флаги"""
-    with pytest.raises(ValueError):
-        filter_by_state(list_of_dict_fixt_wrong_state)
 
 
 # Тестирование функции sort_by_date

@@ -7,11 +7,6 @@ def filter_by_state(list_of_dict: list[dict], state_by_default: str = "EXECUTED"
     только те словари, у которых ключ state  соответствует указанному значению."""
 
     new_list = []
-    list_of_states = ["EXECUTED", "CANCELED"]
-
-    for dict_ in list_of_dict:
-        if dict_.get("state") not in list_of_states:
-            raise ValueError("Неправильный статус флаге state")
 
     for dict_ in list_of_dict:
         if dict_.get("state") == state_by_default:
