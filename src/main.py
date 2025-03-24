@@ -1,4 +1,5 @@
-from src.interfaces import user_welcome_input, user_status_input, user_other_selections_input
+from src.interfaces import user_welcome_input, user_status_input, user_input_fbd, user_input_sbda, user_input_rf, \
+    user_input_sw
 
 
 def main() -> None:
@@ -6,7 +7,11 @@ def main() -> None:
     связывает функциональности между собой."""
     user_selection = user_welcome_input()
     status_selection = user_status_input()
-    a, b, c, d, e = user_other_selections_input()
+    user_fbd = user_input_fbd()
+    user_sbda = user_input_sbda()
+    user_rf = user_input_rf()
+    user_sw = user_input_sw()
+
 
 
     # list_of_dicts = read_json_file("../data/")
