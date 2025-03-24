@@ -1,7 +1,8 @@
 import re
 
 def user_welcome_input() -> int:
-    """Функция приветствия в начале программы и обработки выбора источника данных"""
+    """Функция приветствия в начале программы и обработки выбора источника
+    данных - JSON, CSV или XLSX файл"""
     print("Привет! Добро пожаловать в программу работы с банковскими транзакциями.\n")
     while True:
         try:
@@ -27,8 +28,31 @@ def user_welcome_input() -> int:
 
     return user_input_1
 
-# a = user_welcome_input()
-# print(a)
+
+def user_status_input() -> str:
+    """Функция, с помощью которой пользователь выбирает статус интересующих его
+    операций - EXECUTED, CANCELED, PENDING"""
+    while True:
+        user_input_2 = input(
+        "Введите статус, по которому необходимо выполнить фильтрацию\n"
+        "Доступные для фильтровки статусы: EXECUTED, CANCELED, PENDING\n").lower()
+
+        if user_input_2 == "executed":
+            print('Операции отфильтрованы по статусу "EXECUTED".\n')
+            break
+        elif user_input_2 == "canceled":
+            print('Операции отфильтрованы по статусу "CANCELED".\n')
+            break
+        elif user_input_2 == 'pending':
+            print('Операции отфильтрованы по статусу "PENDING".\n')
+            break
+        else:
+            print(f"Статус операции {user_input_2} недоступен. \n\n")
+
+    return user_input_2
+
+
+
 
 
 def filter_by_description(list_of_dicts: list[dict], look_up_str: str ) -> list[dict]:
