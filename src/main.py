@@ -1,6 +1,7 @@
+from src.generators import filter_by_currency
 from src.interfaces import user_welcome_input, user_status_input, user_input_fbd, user_input_sbda, user_input_rf, \
     user_input_sw
-from src.processing import filter_by_state, sort_by_date
+from src.processing import filter_by_state, sort_by_date, filter_by_currency_2, filter_by_currency_3
 from src.reading_csv_excel import read_csv_file, read_excel_file
 from src.utils import read_json_file
 
@@ -32,9 +33,16 @@ def main() -> None:
         user_sbda = user_input_sbda()
         if user_sbda is not True:
             filtered_list = sort_by_date(filtered_list, user_sbda)
+    # Далее уточняем, выводить ли только рублевые трансакции:
+    user_rf = user_input_rf()
+    if user_rf:
+        if user_selection != 1:
+            filtered_list = filter_by_currency_2(filtered_list, "RUB")
+        else:
+            filtered_list = filter_by_currency_3(filtered_list, "RUB")
+
     print(filtered_list)
 
-    user_rf = user_input_rf()
     user_sw = user_input_sw()
 
 
