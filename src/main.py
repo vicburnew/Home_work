@@ -1,6 +1,6 @@
 from src.interfaces import user_welcome_input, user_status_input, user_input_fbd, user_input_sbda, user_input_rf, \
     user_input_sw
-from src.processing import filter_by_state
+from src.processing import filter_by_state, sort_by_date
 from src.reading_csv_excel import read_csv_file, read_excel_file
 from src.utils import read_json_file
 
@@ -23,12 +23,17 @@ def main() -> None:
     # Запрашиваем ввод статуса для фильтрации (executed, canceled, pending)
     # c переводом в верхний регистр:
     status_selection = user_status_input().upper().strip()
-    # Вызываем функцию фильтрации, возвращающей отфильтрованный список словарей
+    # Вызываем функцию фильтрации, возвращающей отфильтрованный по статусу список словарей
     filtered_list = filter_by_state(list_of_dicts, status_selection)
+    # Запрашиваем у пользователя, требуется ли сортировка по дате:
+    user_fbd = user_input_fbd()
+    if user_fbd:
+    # Если да, то уточняем порядок сортировки - по возрастанию или по убыванию:
+        user_sbda = user_input_sbda()
+        if user_sbda is not True:
+            filtered_list = sort_by_date(filtered_list, user_sbda)
     print(filtered_list)
 
-    user_fbd = user_input_fbd()
-    user_sbda = user_input_sbda()
     user_rf = user_input_rf()
     user_sw = user_input_sw()
 

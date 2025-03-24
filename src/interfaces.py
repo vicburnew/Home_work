@@ -67,11 +67,11 @@ def user_input_fbd() -> bool:
 def user_input_sbda() -> bool:
     """Функция, с помощью которой программа выводит уточняющий
          вопрос для выборки операций, необходимых пользователю"""
-    sort_date_by_ascending = False
+    sort_date_by_ascending = True
     user_input_4 = input(
         "Отсортировать даты по возрастанию или по убыванию? \n").lower()
     if user_input_4 == "по возрастанию":
-        sort_date_by_ascending = True
+        sort_date_by_ascending = False
     else:
         print(f"Вы ввели {user_input_4}, это значит 'По убыванию'. \n\n")
     return sort_date_by_ascending
