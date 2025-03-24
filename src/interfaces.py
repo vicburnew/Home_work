@@ -1,5 +1,4 @@
 import re
-from tkinter import BooleanVar
 
 
 def user_welcome_input() -> int:
@@ -102,59 +101,6 @@ def user_input_sw() -> bool:
     else:
         print(f"Вы ввели {user_input_6}, это значит 'Нет'. \n\n")
     return filter_by_specific_word
-
-
-
-
-def user_other_selections_input() -> bool:
-    """Функция, с помощью которой программа выводит уточняющий
-         вопрос для выборки операций, необходимых пользователю"""
-    filter_by_date_status = False
-    sort_date_by_ascending = False
-    show_only_rub_transactions = False
-    filter_by_specific_word = False
-    specific_word = ""
-
-    user_input_3 = input(
-    "Отсортировать операции по дате? Да/Нет \n").lower()
-    if user_input_3 == "да":
-        filter_by_date_status = True
-    else:
-        print(f"Вы ввели {user_input_3}, это значит 'Нет'. \n\n")
-
-    user_input_4 = input(
-        "Отсортировать даты по возрастанию или по убыванию? \n").lower()
-    if user_input_4 == "по возрастанию":
-        sort_date_by_ascending = True
-    else:
-        print(f"Вы ввели {user_input_4}, это значит 'По убыванию'. \n\n")
-
-    user_input_5 = input(
-        "Выводить только рублевые транзакции? Да/Нет \n").lower()
-    if user_input_5 == "да":
-        show_only_rub_transactions = True
-    else:
-        print(f"Вы ввели {user_input_5}, это значит 'Нет'. \n\n")
-
-    user_input_6 = input(
-        "Отфильтровать список транзакций по определенному слову в описании? Да/Нет \n").lower()
-    if user_input_6 == "да":
-        filter_by_specific_word = True
-        specific_word = input("Введите слово.. - \n")
-    else:
-        print(f"Вы ввели {user_input_6}, это значит 'Нет'. \n\n")
-
-
-    return filter_by_date_status, sort_date_by_ascending, show_only_rub_transactions, filter_by_specific_word, specific_word
-
-
-
-
-
-
-
-
-
 
 
 def filter_by_description(list_of_dicts: list[dict], look_up_str: str ) -> list[dict]:
