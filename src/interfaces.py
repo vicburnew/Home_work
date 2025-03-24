@@ -4,27 +4,31 @@ def user_welcome_input() -> int:
     """Функция приветствия в начале программы и обработки выбора источника данных"""
     print("Привет! Добро пожаловать в программу работы с банковскими транзакциями.\n")
     while True:
-        user_input_1 = int(input(
-        "Выберите необходимый пункт меню:\n "
-        "1. Получить информацию о транзакциях из JSON-файла\n "
-        "2. Получить информацию о транзакциях из CSV-файла\n "
-        "3. Получить информацию о транзакциях из XLSX-файла\n"))
-        if user_input_1 == 1:
-            print('Для обработки выбран JSON-файл.\n')
-            break
-        elif user_input_1 == 2:
-            print('Для обработки выбран CSV-файл.\n')
-            break
-        elif user_input_1 == 3:
-            print('Для обработки выбран XLSX-файл.\n')
-            break
-        else:
-            print("Введен неправильный номер, повторите ввод! \n\n")
+        try:
+            user_input_1 = int(input(
+            "Выберите необходимый пункт меню:\n "
+            "1. Получить информацию о транзакциях из JSON-файла\n "
+            "2. Получить информацию о транзакциях из CSV-файла\n "
+            "3. Получить информацию о транзакциях из XLSX-файла\n"))
+
+            if user_input_1 == 1:
+                print('Для обработки выбран JSON-файл.\n')
+                break
+            elif user_input_1 == 2:
+                print('Для обработки выбран CSV-файл.\n')
+                break
+            elif user_input_1 == 3:
+                print('Для обработки выбран XLSX-файл.\n')
+                break
+            else:
+                print("Введен неправильный номер, повторите ввод! \n\n")
+        except Exception as ex:
+            print(f"Ошибка ввода {ex}, повторите ввод!\n\n")
+
     return user_input_1
 
-
-a = user_welcome_input()
-print(a)
+# a = user_welcome_input()
+# print(a)
 
 
 def filter_by_description(list_of_dicts: list[dict], look_up_str: str ) -> list[dict]:
