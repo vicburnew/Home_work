@@ -1,6 +1,6 @@
 from src.generators import filter_by_currency
 from src.interfaces import user_welcome_input, user_status_input, user_input_fbd, user_input_sbda, user_input_rf, \
-    user_input_sw, filter_by_description
+    user_input_sw, filter_by_description, count_operations_by_type
 from src.processing import filter_by_state, sort_by_date, filter_by_currency_2, filter_by_currency_3
 from src.reading_csv_excel import read_csv_file, read_excel_file
 from src.utils import read_json_file
@@ -50,9 +50,13 @@ def main() -> None:
         specific_word = input("Введите слово для фильтрации: \n")
         filtered_list = filter_by_description(filtered_list, specific_word)
     print("Распечатываю итоговый список транзакций...\n")
+    # Подготовка списка категорий по умолчанию
     list_of_types = ["Открытие вклада", "Перевод с карты на карту", "Перевод организации", "Перевод со счета на счет"]
-    counted_list_of_types =
-
+    # Вызов функции подсчета количества банковских операций
+    counted_list_of_types = count_operations_by_type(filtered_list, list_of_types)
+    number_of_operations = sum(counted_list_of_types.values())
+    # Вывод общего количества операций:
+    print(f"Всего банковских операций в выборке: {number_of_operations}\n")
 
     print(filtered_list)
 

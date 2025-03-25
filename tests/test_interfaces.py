@@ -161,4 +161,11 @@ def test_count_operations_by_type_2(filter_by_description_list_final):
     """Тестирование функции с различными параметрами """
     assert count_operations_by_type(
         filter_by_description_list_final,
-        ["Перевод организации"]) == {"Перевод организации":2}
+        ["Перевод организации"]) == {"Перевод организации":1}
+
+def test_count_operations_by_type_3(filter_by_description_list_final):
+    """Тестирование функции с различными параметрами """
+    assert count_operations_by_type(
+        filter_by_description_list_final,
+        ["Перевод организации", "Перевод с карты на карту"]) == {"Перевод организации":1, "Перевод с карты на карту":3}
+

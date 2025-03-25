@@ -132,69 +132,19 @@ def filter_by_description(list_of_dicts: list[dict], look_up_str: str) -> list[d
     return filtered_list
 
 
-
-
-list_of_types = ["Открытие вклада", "Перевод с карты на карту", "Перевод организации", "Перевод со счета на счет"]
-a = [{'amount': '23182',
-             'currency_code': 'RUB',
-             'currency_name': 'Ruble',
-             'date': '2021-07-08T07:31:21Z',
-             'description': 'Перевод с карты на карту',
-             'from': 'Visa 0773092093872450',
-             'id': '4234093',
-             'state': 'EXECUTED',
-             'to': 'Discover 8602781449570491'},
-            {'amount': '18420',
-             'currency_code': 'RUB',
-             'currency_name': 'Ruble',
-             'date': '2023-08-30T00:58:36Z',
-             'description': 'Перевод с карты на карту',
-             'from': 'Mastercard 3093124722348405',
-             'id': '1473389',
-             'state': 'EXECUTED',
-             'to': 'American Express 6950002720800411'},
-            {'amount': '21574',
-             'currency_code': 'RUB',
-             'currency_name': 'Ruble',
-             'date': '2021-12-03T14:07:06Z',
-             'description': 'Перевод со счета на счет',
-             'from': 'Счет 22246813624466689601',
-             'id': '212502',
-             'state': 'EXECUTED',
-             'to': 'Счет 60148056083328746527'},
-            {'amount': '31741',
-             'currency_code': 'RUB',
-             'currency_name': 'Ruble',
-             'date': '2023-10-20T21:00:39Z',
-             'description': 'Перевод с карты на карту',
-             'from': 'American Express 5313948287096164',
-             'id': '3436241',
-             'state': 'EXECUTED',
-             'to': 'Discover 0329774489991288'},
-            {'amount': '22818',
-             'currency_code': 'RUB',
-             'currency_name': 'Ruble',
-             'date': '2022-03-25T01:54:48Z',
-             'description': 'Перевод организации',
-             'from': 'American Express 5289343085624249',
-             'id': '3036684',
-             'state': 'EXECUTED',
-             'to': 'Счет 37876144219366357273'}]
-
 def count_operations_by_type(list_of_dicts: list[dict], list_of_types_: list) -> dict:
     """Функция принимает на вход список словарей с данными о
-    банковских операциях и (oпционально) список категорий операций, и возвращает словарь,
+    банковских операциях и список категорий операций, и возвращает словарь,
     в котором ключи — это названия категорий, а значения —
     это количество операций в каждой категории"""
-    types_list = []
+    types_list_united = []
     for dict_ in list_of_dicts:
-        types_list.append(dict_["description"])
-    counted_types = dict(Counter(types_list))
-    print(counted_types)
+        if dict_["description"] in list_of_types_:
+            types_list_united.append(dict_["description"])
+    counted_types = dict(Counter(types_list_united))
 
     return counted_types
 
-# count_operations_by_type(a, list_of_types)
 
 
 
