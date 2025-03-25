@@ -49,6 +49,9 @@ def main() -> None:
     if user_sw:
         specific_word = input("Введите слово для фильтрации: \n")
         filtered_list = filter_by_description(filtered_list, specific_word)
+    print("Распечатываю итоговый список транзакций...\n")
+    list_of_types = ["Открытие вклада", "Перевод с карты на карту", "Перевод организации", "Перевод со счета на счет"]
+    counted_list_of_types =
 
 
     print(filtered_list)

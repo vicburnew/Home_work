@@ -1387,3 +1387,11 @@ def filter_by_description_list_final():
              'id': '3036684',
              'state': 'EXECUTED',
              'to': 'Счет 37876144219366357273'}]
+
+@pytest.fixture
+def list_of_types_fixt():
+    return ["Открытие вклада", "Перевод с карты на карту", "Перевод организации", "Перевод со счета на счет"]
+
+@pytest.fixture
+def list_of_types_return_fixt():
+    return {'Перевод с карты на карту': 3, 'Перевод со счета на счет': 1, 'Перевод организации': 1}

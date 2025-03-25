@@ -4,7 +4,7 @@ import pytest
 from unittest.mock import patch
 
 from src.interfaces import user_welcome_input, user_status_input, user_input_fbd, user_input_sbda, user_input_rf, \
-    user_input_sw, filter_by_description
+    user_input_sw, filter_by_description, count_operations_by_type
 
 
 @pytest.mark.parametrize("mock_in, output", [("1", 1), ("2", 2), ("3", 3)])
@@ -131,19 +131,34 @@ def test_filter_by_description_1(filter_by_description_list_initial, filter_by_d
     """Тесты функции на различные типы ввода"""
     assert filter_by_description(filter_by_description_list_initial, "перевод") == filter_by_description_list_final
 
+
 def test_filter_by_description_2(filter_by_description_list_initial, filter_by_description_list_final):
     """Тесты функции на различные типы ввода"""
     assert filter_by_description(filter_by_description_list_initial, "") == filter_by_description_list_initial
+
 
 def test_filter_by_description_3(filter_by_description_list_initial, filter_by_description_list_final):
     """Тесты функции на различные типы ввода"""
     assert filter_by_description(filter_by_description_list_initial, " ") == filter_by_description_list_initial
 
+
 def test_filter_by_description_4(filter_by_description_list_initial, filter_by_description_list_final):
     """Тесты функции на различные типы ввода"""
     assert filter_by_description(filter_by_description_list_initial, "aAS") == filter_by_description_list_initial
+
 
 def test_filter_by_description_5(filter_by_description_list_initial, filter_by_description_list_final):
     """Тесты функции на различные типы ввода"""
     assert filter_by_description(filter_by_description_list_initial, "ПЕРЕВОД") == filter_by_description_list_final
 
+
+def test_count_operations_by_type_1(filter_by_description_list_final, list_of_types_fixt, list_of_types_return_fixt):
+    """Тестирование функции с различными параметрами """
+    assert count_operations_by_type(filter_by_description_list_final, list_of_types_fixt) == list_of_types_return_fixt
+
+
+def test_count_operations_by_type_2(filter_by_description_list_final):
+    """Тестирование функции с различными параметрами """
+    assert count_operations_by_type(
+        filter_by_description_list_final,
+        ["Перевод организации"]) == {"Перевод организации":2}
