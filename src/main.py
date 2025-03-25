@@ -21,7 +21,6 @@ def main() -> None:
     else:
         # Вызываем функцию чтения EXCEL - файла, возвращающей список словарей
         list_of_dicts = read_excel_file("../data/")
-    print(list_of_dicts)
     # Запрашиваем ввод статуса для фильтрации (executed, canceled, pending)
     # c переводом в верхний регистр:
     status_selection = user_status_input().upper().strip()
@@ -41,12 +40,12 @@ def main() -> None:
             filtered_list = filter_by_currency_2(filtered_list, "RUB")
         else:
             filtered_list = filter_by_currency_3(filtered_list, "RUB")
-
+    # Далее запрашиваем, нужно ли фильтровать список по определенному слову
     print(filtered_list)
-
     user_sw = user_input_sw()
 
 
+    # print(filtered_list)
 
     # list_of_dicts = read_json_file("../data/")
     # print(filter_by_description(list_of_dicts, "Перевод"))
