@@ -1,6 +1,7 @@
 import pytest
 
-from src.processing import filter_by_state, sort_by_date
+from src.processing import filter_by_state, sort_by_date, filter_by_currency_2, filter_by_currency_3
+
 
 # Тестирование функции filter_by_state
 
@@ -40,13 +41,17 @@ def test_sort_by_date_positive_equaldates_asc(
 def test_sort_by_date_positive_equaldates_desc(
     list_of_dict_fixt_equaldates_initial, list_of_dict_fixt_equaldates_sort_desc
 ):
-    """тестирование с использованием фикстур при наличии одинаковых дат"""
+    """Тестирование с использованием фикстур при наличии одинаковых дат"""
     assert sort_by_date(list_of_dict_fixt_equaldates_initial) == list_of_dict_fixt_equaldates_sort_desc
 
-def test_filter_by_currency_2():
-    pass
+def test_filter_by_currency_2(csv_list_initial, filter_by_curr_rub_csv):
+    """Тестирование с использованием фикстур"""
+    assert filter_by_currency_2(csv_list_initial, "RUB") == filter_by_curr_rub_csv
 
-def test_filter_by_currency_3():
-    pass
+
+def test_filter_by_currency_3(json_list_initial_short, filter_by_curr_rub_json):
+    """Тестирование с использованием фикстур"""
+    assert filter_by_currency_3(json_list_initial_short, "RUB") == filter_by_curr_rub_json
+
 
 

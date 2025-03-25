@@ -21,6 +21,7 @@ def main() -> None:
     else:
         # Вызываем функцию чтения EXCEL - файла, возвращающей список словарей
         list_of_dicts = read_excel_file("../data/")
+    print(list_of_dicts)
     # Запрашиваем ввод статуса для фильтрации (executed, canceled, pending)
     # c переводом в верхний регистр:
     status_selection = user_status_input().upper().strip()

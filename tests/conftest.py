@@ -1202,3 +1202,114 @@ def mock_csv_fixt():
 @pytest.fixture
 def mock_excel_fixt():
     return [{"id": "650703", "state": "EXECUTED", "date": "2023-09-05T11:30:32Z"}]
+
+
+@pytest.fixture
+def csv_list_initial():
+    return [
+        {'id': '650703', 'state': 'EXECUTED', 'date': '2023-09-05T11:30:32Z', 'amount': '16210', 'currency_name': 'Sol',
+         'currency_code': 'PEN', 'from': 'Счет 58803664561298323391', 'to': 'Счет 39745660563456619397',
+         'description': 'Перевод организации'},
+        {'id': '4234093', 'state': 'EXECUTED', 'date': '2021-07-08T07:31:21Z', 'amount': '23182',
+         'currency_name': 'Ruble', 'currency_code': 'RUB', 'from': 'Visa 0773092093872450',
+         'to': 'Discover 8602781449570491', 'description': 'Перевод с карты на карту'},
+        {'id': '3598919', 'state': 'EXECUTED', 'date': '2020-12-06T23:00:58Z', 'amount': '29740',
+         'currency_name': 'Peso', 'currency_code': 'COP', 'from': 'Discover 3172601889670065',
+         'to': 'Discover 0720428384694643', 'description': 'Перевод с карты на карту'},
+        {'id': '593027', 'state': 'CANCELED', 'date': '2023-07-22T05:02:01Z', 'amount': '30368',
+         'currency_name': 'Shilling', 'currency_code': 'TZS', 'from': 'Visa 1959232722494097',
+         'to': 'Visa 6804119550473710', 'description': 'Перевод с карты на карту'},
+        {'id': '366176', 'state': 'EXECUTED', 'date': '2020-08-02T09:35:18Z', 'amount': '29482',
+         'currency_name': 'Rupiah', 'currency_code': 'IDR', 'from': 'Discover 0325955596714937',
+         'to': 'Visa 3820488829287420', 'description': 'Перевод с карты на карту'},
+        {'id': '5380041', 'state': 'CANCELED', 'date': '2021-02-01T11:54:58Z', 'amount': '23789',
+         'currency_name': 'Peso', 'currency_code': 'UYU', 'from': '', 'to': 'Счет 23294994494356835683',
+         'description': 'Открытие вклада'},
+        {'id': '1962667', 'state': 'EXECUTED', 'date': '2023-10-22T09:43:32Z', 'amount': '18588',
+         'currency_name': 'Peso', 'currency_code': 'COP', 'from': 'Mastercard 7286844946221431',
+         'to': 'Счет 76145988629288763144', 'description': 'Перевод организации'},
+        {'id': '5294458', 'state': 'EXECUTED', 'date': '2022-06-20T18:08:20Z', 'amount': '16836',
+         'currency_name': 'Yuan Renminbi', 'currency_code': 'CNY', 'from': 'Visa 2759011965877198',
+         'to': 'Счет 38287443300766991082', 'description': 'Перевод с карты на карту'},
+        {'id': '5429839', 'state': 'EXECUTED', 'date': '2023-06-23T19:46:34Z', 'amount': '25261',
+         'currency_name': 'Hryvnia', 'currency_code': 'UAH', 'from': '', 'to': 'Счет 76768135089446747029',
+         'description': 'Открытие вклада'},
+        {'id': '3226899', 'state': 'EXECUTED', 'date': '2023-04-17T09:21:15Z', 'amount': '21680',
+         'currency_name': 'Koruna', 'currency_code': 'CZK', 'from': '', 'to': 'Счет 88329674734590848775',
+         'description': 'Открытие вклада'},
+        {'id': '3176764', 'state': 'CANCELED', 'date': '2022-08-24T14:32:38Z', 'amount': '16652',
+         'currency_name': 'Euro', 'currency_code': 'EUR', 'from': 'Mastercard 8387037425051294',
+         'to': 'American Express 5556525473658852', 'description': 'Перевод с карты на карту'},
+        {'id': '1473389', 'state': 'EXECUTED', 'date': '2023-08-30T00:58:36Z', 'amount': '18420',
+         'currency_name': 'Ruble', 'currency_code': 'RUB', 'from': 'Mastercard 3093124722348405',
+         'to': 'American Express 6950002720800411', 'description': 'Перевод с карты на карту'}
+    ]
+
+
+@pytest.fixture
+def filter_by_curr_rub_csv():
+    return [{'id': '4234093', 'state': 'EXECUTED', 'date': '2021-07-08T07:31:21Z', 'amount': '23182',
+             'currency_name': 'Ruble', 'currency_code': 'RUB', 'from': 'Visa 0773092093872450',
+             'to': 'Discover 8602781449570491', 'description': 'Перевод с карты на карту'},
+            {'id': '1473389', 'state': 'EXECUTED', 'date': '2023-08-30T00:58:36Z', 'amount': '18420',
+             'currency_name': 'Ruble', 'currency_code': 'RUB', 'from': 'Mastercard 3093124722348405',
+             'to': 'American Express 6950002720800411', 'description': 'Перевод с карты на карту'}]
+
+
+@pytest.fixture
+def filter_by_curr_rub_json():
+    return [{'id': 441945886, 'state': 'EXECUTED', 'date': '2019-08-26T10:50:58.294041',
+             'operationAmount': {'amount': '31957.58', 'currency': {'name': 'руб.', 'code': 'RUB'}},
+             'description': 'Перевод организации', 'from': 'Maestro 1596837868705199',
+             'to': 'Счет 64686473678894779589'},
+            {'id': 587085106, 'state': 'EXECUTED', 'date': '2018-03-23T10:45:06.972075',
+             'operationAmount': {'amount': '48223.05', 'currency': {'name': 'руб.', 'code': 'RUB'}},
+             'description': 'Открытие вклада', 'to': 'Счет 41421565395219882431'}]
+
+@pytest.fixture
+def json_list_initial_short():
+    return [
+        {
+            "date": "2019-08-26T10:50:58.294041",
+            "description": "Перевод организации",
+            "from": "Maestro 1596837868705199",
+            "id": 441945886,
+            "operationAmount": {"amount": "31957.58", "currency": {"code": "RUB", "name": "руб."}},
+            "state": "EXECUTED",
+            "to": "Счет 64686473678894779589",
+        },
+        {
+            "date": "2019-07-03T18:35:29.512364",
+            "description": "Перевод организации",
+            "from": "MasterCard 7158300734726758",
+            "id": 41428829,
+            "operationAmount": {"amount": "8221.37", "currency": {"code": "USD", "name": "USD"}},
+            "state": "EXECUTED",
+            "to": "Счет 35383033474447895560",
+        },
+        {
+            "date": "2018-06-30T02:08:58.425572",
+            "description": "Перевод организации",
+            "from": "Счет 75106830613657916952",
+            "id": 939719570,
+            "operationAmount": {"amount": "9824.07", "currency": {"code": "USD", "name": "USD"}},
+            "state": "EXECUTED",
+            "to": "Счет 11776614605963066702",
+        },
+        {
+            "date": "2018-03-23T10:45:06.972075",
+            "description": "Открытие вклада",
+            "id": 587085106,
+            "operationAmount": {"amount": "48223.05", "currency": {"code": "RUB", "name": "руб."}},
+            "state": "EXECUTED",
+            "to": "Счет 41421565395219882431",
+        },
+        {
+            "date": "2019-04-04T23:20:05.206878",
+            "description": "Перевод со счета на счет",
+            "from": "Счет 19708645243227258542",
+            "id": 142264268,
+            "operationAmount": {"amount": "79114.93", "currency": {"code": "USD", "name": "USD"}},
+            "state": "EXECUTED",
+            "to": "Счет 75651667383060284188",
+        }]
