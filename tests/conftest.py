@@ -1395,3 +1395,4 @@ def list_of_types_fixt():
 @pytest.fixture
 def list_of_types_return_fixt():
     return {'Перевод с карты на карту': 3, 'Перевод со счета на счет': 1, 'Перевод организации': 1}
+

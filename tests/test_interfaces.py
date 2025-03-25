@@ -4,7 +4,7 @@ import pytest
 from unittest.mock import patch
 
 from src.interfaces import user_welcome_input, user_status_input, user_input_fbd, user_input_sbda, user_input_rf, \
-    user_input_sw, filter_by_description, count_operations_by_type
+    user_input_sw, filter_by_description, count_operations_by_type, program_output
 
 
 @pytest.mark.parametrize("mock_in, output", [("1", 1), ("2", 2), ("3", 3)])
@@ -169,3 +169,7 @@ def test_count_operations_by_type_3(filter_by_description_list_final):
         filter_by_description_list_final,
         ["Перевод организации", "Перевод с карты на карту"]) == {"Перевод организации":1, "Перевод с карты на карту":3}
 
+
+# def test_program_output(filter_by_description_list_final) -> None:
+#     """Тестирование функции вывода результатов работы программы в консоль"""
+#     assert program_output(filter_by_description_list_final) ==

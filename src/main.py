@@ -1,6 +1,6 @@
 from src.generators import filter_by_currency
 from src.interfaces import user_welcome_input, user_status_input, user_input_fbd, user_input_sbda, user_input_rf, \
-    user_input_sw, filter_by_description, count_operations_by_type
+    user_input_sw, filter_by_description, count_operations_by_type, program_output
 from src.processing import filter_by_state, sort_by_date, filter_by_currency_2, filter_by_currency_3
 from src.reading_csv_excel import read_csv_file, read_excel_file
 from src.utils import read_json_file
@@ -57,8 +57,11 @@ def main() -> None:
     number_of_operations = sum(counted_list_of_types.values())
     # Вывод общего количества операций:
     print(f"Всего банковских операций в выборке: {number_of_operations}\n")
+    # Вывод результатов работы программы в консоль:
+    program_output(filtered_list)
 
-    print(filtered_list)
+
+    # print(filtered_list)
 
 
     return None

@@ -19,9 +19,9 @@ def mask_account_card(input_long_data: str) -> str:
     num_code = int(input_data_list[-1])
     # проверяем, что у нас было на входе - карта или счет
 
-    card_types = ["счет", "visa", "mir", "maestro", "mastercard"]
-    if input_data_list[0] not in card_types:
-        raise ValueError("Неверный тип ввода данных- введите слово Счет или название карты")
+    # card_types = ["счет", "visa", "mir", "maestro", "mastercard"]
+    # if input_data_list[0] not in card_types:
+    #     raise ValueError("Неверный тип ввода данных- введите слово Счет или название карты")
 
     if len(input_long_data) == 0:
         raise IndexError("Неверный номер карты - введите данные в корректном формате")
@@ -52,20 +52,20 @@ def get_date(long_date_format: str) -> str:
 
     long_date_norm = long_date_format.strip()
 
-    if len(long_date_norm) != 26:
-        raise ValueError("Неверный тип ввода данных")
-
-    if long_date_norm[10] != "T":
-        raise ValueError("Неверный тип ввода данных")
-
-    if long_date_norm[13] != ":":
-        raise ValueError("Неверный тип ввода данных")
-
-    if long_date_norm[16] != ":":
-        raise ValueError("Неверный тип ввода данных")
-
-    if long_date_norm[19] != ".":
-        raise ValueError("Неверный тип ввода данных")
+    # if len(long_date_norm) != 26:
+    #     raise ValueError("Неверный тип ввода данных")
+    #
+    # if long_date_norm[10] != "T":
+    #     raise ValueError("Неверный тип ввода данных")
+    #
+    # if long_date_norm[13] != ":":
+    #     raise ValueError("Неверный тип ввода данных")
+    #
+    # if long_date_norm[16] != ":":
+    #     raise ValueError("Неверный тип ввода данных")
+    #
+    # if long_date_norm[19] != ".":
+    #     raise ValueError("Неверный тип ввода данных")
 
     initial_date = long_date_norm[:10]
     year = initial_date[:4]
