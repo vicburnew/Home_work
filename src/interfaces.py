@@ -121,9 +121,7 @@ def filter_by_description(list_of_dicts: list[dict], look_up_str: str) -> list[d
 
     for dict_ in list_of_dicts:
         text = dict_.get("description")
-        # print(text)
         look_up_result = re.findall(look_up_str, text, re.IGNORECASE)
-        print(look_up_result)
         if len(look_up_result) != 0:
             filtered_list.append(dict_)
     if len(filtered_list) == 0:
@@ -132,4 +130,3 @@ def filter_by_description(list_of_dicts: list[dict], look_up_str: str) -> list[d
 
     return filtered_list
 
-# print(filter_by_description(a, "sasd"))

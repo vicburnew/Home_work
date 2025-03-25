@@ -1,6 +1,6 @@
 from src.generators import filter_by_currency
 from src.interfaces import user_welcome_input, user_status_input, user_input_fbd, user_input_sbda, user_input_rf, \
-    user_input_sw
+    user_input_sw, filter_by_description
 from src.processing import filter_by_state, sort_by_date, filter_by_currency_2, filter_by_currency_3
 from src.reading_csv_excel import read_csv_file, read_excel_file
 from src.utils import read_json_file
@@ -40,15 +40,19 @@ def main() -> None:
             filtered_list = filter_by_currency_2(filtered_list, "RUB")
         else:
             filtered_list = filter_by_currency_3(filtered_list, "RUB")
-    # Далее запрашиваем, нужно ли фильтровать список по определенному слову
-    print(filtered_list)
+    # Далее запрашиваем, нужно ли фильтровать список по определенному слову.
     user_sw = user_input_sw()
+    # Если "да", то пользователю предлагается ввести слово для фильтрации.
+    # Если пользователь ввел слово, которого нет в поле "description", то программа
+    # возвращает текущий список словарей с выводом предупреждения о том, что
+    # -Не найдено ни одной транзакции, подходящей под ваши условия фильтрации-.
+    if user_sw:
+        specific_word = input("Введите слово для фильтрации: \n")
+        filtered_list = filter_by_description(filtered_list, specific_word)
 
 
-    # print(filtered_list)
+    print(filtered_list)
 
-    # list_of_dicts = read_json_file("../data/")
-    # print(filter_by_description(list_of_dicts, "Перевод"))
 
     return None
 
