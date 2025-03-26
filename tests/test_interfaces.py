@@ -1,22 +1,13 @@
 import builtins
 import sys
 from io import StringIO
-
-import pytest
 from unittest.mock import patch
 
-from src.interfaces import (
-    user_welcome_input,
-    user_status_input,
-    user_input_fbd,
-    user_input_sbda,
-    user_input_rf,
-    user_input_sw,
-    filter_by_description,
-    count_operations_by_type,
-    program_output_2,
-    program_output_1,
-)
+import pytest
+
+from src.interfaces import (count_operations_by_type, filter_by_description, program_output_1, program_output_2,
+                            user_input_fbd, user_input_rf, user_input_sbda, user_input_sw, user_status_input,
+                            user_welcome_input)
 
 
 @pytest.mark.parametrize("mock_in, output", [("1", 1), ("2", 2), ("3", 3)])

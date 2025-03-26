@@ -1,5 +1,4 @@
-from src.processing import filter_by_state, sort_by_date, filter_by_currency_2, filter_by_currency_3
-
+from src.processing import filter_by_currency_2, filter_by_currency_3, filter_by_state, sort_by_date
 
 # Тестирование функции filter_by_state
 
