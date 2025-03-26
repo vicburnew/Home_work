@@ -47,9 +47,9 @@ def get_mask_account(user_account: int) -> str:
 
     account_str = str(user_account)
 
-    if len(account_str) != 20:
-        logger.error("Неверная длина номера счета")
-        raise ValueError("Неверный номер счета")
+    # if len(account_str) != 20:
+    #     logger.error("Неверная длина номера счета")
+    #     raise ValueError("Неверный номер счета")
 
     logger.info("Начало маскирования номера счета")
     account_mask = "**" + account_str[-4:]

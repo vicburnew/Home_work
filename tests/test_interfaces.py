@@ -3,13 +3,23 @@ import builtins
 import pytest
 from unittest.mock import patch
 
-from src.interfaces import user_welcome_input, user_status_input, user_input_fbd, user_input_sbda, user_input_rf, \
-    user_input_sw, filter_by_description, count_operations_by_type, program_output
+from src.interfaces import (
+    user_welcome_input,
+    user_status_input,
+    user_input_fbd,
+    user_input_sbda,
+    user_input_rf,
+    user_input_sw,
+    filter_by_description,
+    count_operations_by_type,
+    program_output_2,
+    program_output_1,
+)
 
 
 @pytest.mark.parametrize("mock_in, output", [("1", 1), ("2", 2), ("3", 3)])
 def test_user_welcome_input_1(mock_in, output):
-    """Тесты функции на различные типы ввода """
+    """Тесты функции на различные типы ввода"""
     mock_input_data = mock_in
     with patch("builtins.input", read_data=mock_input_data):
         builtins.input.return_value = mock_input_data
@@ -27,18 +37,22 @@ def test_user_welcome_input_1(mock_in, output):
 #             user_welcome_input()
 #     # assert result == "Введен неправильный номер, повторите ввод! \n\n"
 
-@pytest.mark.parametrize("mock_in, output",
-                         [("EXECUTED", "executed"),
-                          ("Executed", "executed"),
-                          ("CANCELED", "canceled"),
-                          ("canceled", "canceled"),
-                          ("Canceled", "canceled"),
-                          ("pending", "pending"),
-                          ("Pending", "pending"),
-                          ("PENDING", "pending")
-                          ])
+
+@pytest.mark.parametrize(
+    "mock_in, output",
+    [
+        ("EXECUTED", "executed"),
+        ("Executed", "executed"),
+        ("CANCELED", "canceled"),
+        ("canceled", "canceled"),
+        ("Canceled", "canceled"),
+        ("pending", "pending"),
+        ("Pending", "pending"),
+        ("PENDING", "pending"),
+    ],
+)
 def test_user_status_input_1(mock_in, output):
-    """Тесты функции на различные типы ввода """
+    """Тесты функции на различные типы ввода"""
     mock_input_data = mock_in
     with patch("builtins.input", read_data=mock_input_data):
         builtins.input.return_value = mock_input_data
@@ -46,19 +60,22 @@ def test_user_status_input_1(mock_in, output):
         assert result == output
 
 
-@pytest.mark.parametrize("mock_in, output",
-                         [("да", True),
-                          ("Да", True),
-                          ("ДА", True),
-                          ("нет", False),
-                          ("НЕТ", False),
-                          ("asdad", False),
-                          ("ывац", False),
-                          ("12344", False),
-                          ("", False)
-                          ])
+@pytest.mark.parametrize(
+    "mock_in, output",
+    [
+        ("да", True),
+        ("Да", True),
+        ("ДА", True),
+        ("нет", False),
+        ("НЕТ", False),
+        ("asdad", False),
+        ("ывац", False),
+        ("12344", False),
+        ("", False),
+    ],
+)
 def test_user_input_fbd(mock_in, output):
-    """Тесты функции на различные типы ввода """
+    """Тесты функции на различные типы ввода"""
     mock_input_data = mock_in
     with patch("builtins.input", read_data=mock_input_data):
         builtins.input.return_value = mock_input_data
@@ -66,20 +83,23 @@ def test_user_input_fbd(mock_in, output):
         assert result == output
 
 
-@pytest.mark.parametrize("mock_in, output",
-                         [("по возрастанию", True),
-                          ("По возрастанию", True),
-                          ("по убыванию", False),
-                          ("ДА", False),
-                          ("нет", False),
-                          ("НЕТ", False),
-                          ("asdad", False),
-                          ("ывац", False),
-                          ("12344", False),
-                          ("", False)
-                          ])
+@pytest.mark.parametrize(
+    "mock_in, output",
+    [
+        ("по возрастанию", True),
+        ("По возрастанию", True),
+        ("по убыванию", False),
+        ("ДА", False),
+        ("нет", False),
+        ("НЕТ", False),
+        ("asdad", False),
+        ("ывац", False),
+        ("12344", False),
+        ("", False),
+    ],
+)
 def test_user_input_sbda(mock_in, output):
-    """Тесты функции на различные типы ввода """
+    """Тесты функции на различные типы ввода"""
     mock_input_data = mock_in
     with patch("builtins.input", read_data=mock_input_data):
         builtins.input.return_value = mock_input_data
@@ -87,19 +107,22 @@ def test_user_input_sbda(mock_in, output):
         assert result == output
 
 
-@pytest.mark.parametrize("mock_in, output",
-                         [("да", True),
-                          ("Да", True),
-                          ("ДА", True),
-                          ("нет", False),
-                          ("НЕТ", False),
-                          ("asdad", False),
-                          ("ывац", False),
-                          ("12344", False),
-                          ("", False)
-                          ])
+@pytest.mark.parametrize(
+    "mock_in, output",
+    [
+        ("да", True),
+        ("Да", True),
+        ("ДА", True),
+        ("нет", False),
+        ("НЕТ", False),
+        ("asdad", False),
+        ("ывац", False),
+        ("12344", False),
+        ("", False),
+    ],
+)
 def test_user_input_rf(mock_in, output):
-    """Тесты функции на различные типы ввода """
+    """Тесты функции на различные типы ввода"""
     mock_input_data = mock_in
     with patch("builtins.input", read_data=mock_input_data):
         builtins.input.return_value = mock_input_data
@@ -107,19 +130,22 @@ def test_user_input_rf(mock_in, output):
         assert result == output
 
 
-@pytest.mark.parametrize("mock_in, output",
-                         [("да", True),
-                          ("Да", True),
-                          ("ДА", True),
-                          ("нет", False),
-                          ("НЕТ", False),
-                          ("asdad", False),
-                          ("ывац", False),
-                          ("12344", False),
-                          ("", False)
-                          ])
+@pytest.mark.parametrize(
+    "mock_in, output",
+    [
+        ("да", True),
+        ("Да", True),
+        ("ДА", True),
+        ("нет", False),
+        ("НЕТ", False),
+        ("asdad", False),
+        ("ывац", False),
+        ("12344", False),
+        ("", False),
+    ],
+)
 def test_user_input_sw(mock_in, output):
-    """Тесты функции на различные типы ввода """
+    """Тесты функции на различные типы ввода"""
     mock_input_data = mock_in
     with patch("builtins.input", read_data=mock_input_data):
         builtins.input.return_value = mock_input_data
@@ -153,23 +179,27 @@ def test_filter_by_description_5(filter_by_description_list_initial, filter_by_d
 
 
 def test_count_operations_by_type_1(filter_by_description_list_final, list_of_types_fixt, list_of_types_return_fixt):
-    """Тестирование функции с различными параметрами """
+    """Тестирование функции с различными параметрами"""
     assert count_operations_by_type(filter_by_description_list_final, list_of_types_fixt) == list_of_types_return_fixt
 
 
 def test_count_operations_by_type_2(filter_by_description_list_final):
-    """Тестирование функции с различными параметрами """
-    assert count_operations_by_type(
-        filter_by_description_list_final,
-        ["Перевод организации"]) == {"Перевод организации":1}
+    """Тестирование функции с различными параметрами"""
+    assert count_operations_by_type(filter_by_description_list_final, ["Перевод организации"]) == {
+        "Перевод организации": 1
+    }
+
 
 def test_count_operations_by_type_3(filter_by_description_list_final):
-    """Тестирование функции с различными параметрами """
+    """Тестирование функции с различными параметрами"""
     assert count_operations_by_type(
-        filter_by_description_list_final,
-        ["Перевод организации", "Перевод с карты на карту"]) == {"Перевод организации":1, "Перевод с карты на карту":3}
+        filter_by_description_list_final, ["Перевод организации", "Перевод с карты на карту"]
+    ) == {"Перевод организации": 1, "Перевод с карты на карту": 3}
 
 
-# def test_program_output(filter_by_description_list_final) -> None:
-#     """Тестирование функции вывода результатов работы программы в консоль"""
-#     assert program_output(filter_by_description_list_final) ==
+def test_program_output_1(json_list_initial_short_2, mock_out_return_fixt) -> None:
+    """Тестирование функции вывода результатов работы программы в консоль"""
+    with patch("sys.stdout") as mock_stdout:
+        mock_stdout.return_value = mock_out_return_fixt
+        program_output_1(json_list_initial_short_2)
+        self.assertIn(mock_stdout.getvalue())

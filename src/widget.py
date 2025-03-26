@@ -7,9 +7,13 @@ def mask_account_card(input_long_data: str) -> str:
     """Функция, которая принимает один аргумент — строку,
     содержащую тип и номер карты или счета, и возвращает строку
     с замаскированным номером"""
+    long_input_masked = ""
 
-    if not isinstance(input_long_data, str):
-        raise TypeError("Ошибка типа данных - требуется формат -Строка-")
+    # if not isinstance(input_long_data, str):
+    #     raise TypeError("Ошибка типа данных - требуется формат -Строка-")
+
+    if input_long_data == "":
+        return long_input_masked
 
     # переводим вход в нижний регистр
     input_long_data_low = input_long_data.lower()
@@ -23,8 +27,8 @@ def mask_account_card(input_long_data: str) -> str:
     # if input_data_list[0] not in card_types:
     #     raise ValueError("Неверный тип ввода данных- введите слово Счет или название карты")
 
-    if len(input_long_data) == 0:
-        raise IndexError("Неверный номер карты - введите данные в корректном формате")
+    # if len(input_long_data) == 0:
+    #     raise IndexError("Неверный номер карты - введите данные в корректном формате")
 
     if input_data_list[0] != "счет":
         # если была карта, то вызываем функцию маскировки номера карты, на
