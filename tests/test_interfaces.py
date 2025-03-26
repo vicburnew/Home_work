@@ -1,4 +1,6 @@
 import builtins
+import sys
+from io import StringIO
 
 import pytest
 from unittest.mock import patch
@@ -199,7 +201,22 @@ def test_count_operations_by_type_3(filter_by_description_list_final):
 
 def test_program_output_1(json_list_initial_short_2, mock_out_return_fixt) -> None:
     """Тестирование функции вывода результатов работы программы в консоль"""
-    with patch("sys.stdout") as mock_stdout:
-        mock_stdout.return_value = mock_out_return_fixt
-        program_output_1(json_list_initial_short_2)
-        self.assertIn(mock_stdout.getvalue())
+    temp_stdout = sys.stdout
+    result = StringIO()
+    sys.stdout = result
+    program_output_1(json_list_initial_short_2)
+    sys.stdout = temp_stdout
+    result_str = result.getvalue()
+
+    assert result_str == mock_out_return_fixt
+
+def test_program_output_2(csv_excel_list_initial_short_2, mock_out_return_fixt_2) -> None:
+    """Тестирование функции вывода результатов работы программы в консоль"""
+    temp_stdout = sys.stdout
+    result = StringIO()
+    sys.stdout = result
+    program_output_2(csv_excel_list_initial_short_2)
+    sys.stdout = temp_stdout
+    result_str = result.getvalue()
+
+    assert result_str == mock_out_return_fixt_2

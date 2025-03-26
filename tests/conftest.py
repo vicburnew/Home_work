@@ -1592,4 +1592,31 @@ def json_list_initial_short_2():
 
 @pytest.fixture
 def mock_out_return_fixt():
-    return "26.08.2019 Перевод организации\nMaestro 1596 83** **** 5199 -> Счет **9589\nСумма: 31957.58 руб."
+    return ('26.08.2019 Перевод организации\n'
+ ' Maestro 1596 83** **** 5199 -> Счет **9589\n'
+ ' Сумма: 31957.58 руб.\n'
+ '\n')
+
+@pytest.fixture
+def csv_excel_list_initial_short_2():
+    return [
+        {
+            "amount": "22818",
+            "currency_code": "RUB",
+            "currency_name": "Ruble",
+            "date": "2022-03-25T01:54:48Z",
+            "description": "Перевод организации",
+            "from": "American Express 5289343085624249",
+            "id": "3036684",
+            "state": "EXECUTED",
+            "to": "Счет 37876144219366357273",
+        }
+    ]
+
+
+@pytest.fixture
+def mock_out_return_fixt_2():
+    return ('25.03.2022 Перевод организации\n'
+ ' American Express 5289 34** **** 4249 -> Счет **7273\n'
+ ' Сумма: 22818.0 RUB\n'
+ '\n')
