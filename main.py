@@ -23,13 +23,13 @@ def main() -> None:
     user_selection = user_welcome_input()
     if user_selection == 1:
         # Вызываем функцию чтения JSON - файла, возвращающей список словарей
-        list_of_dicts = read_json_file("../data/")
+        list_of_dicts = read_json_file("data/")
     elif user_selection == 2:
         # Вызываем функцию чтения CSV - файла, возвращающей список словарей
-        list_of_dicts = read_csv_file("../data/")
+        list_of_dicts = read_csv_file("data/")
     else:
         # Вызываем функцию чтения EXCEL - файла, возвращающей список словарей
-        list_of_dicts = read_excel_file("../data/")
+        list_of_dicts = read_excel_file("data/")
     # Запрашиваем ввод статуса для фильтрации (executed, canceled, pending)
     # c переводом в верхний регистр:
     status_selection = user_status_input().upper().strip()

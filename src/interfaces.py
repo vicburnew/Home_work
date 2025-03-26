@@ -147,109 +147,6 @@ def count_operations_by_type(list_of_dicts: list[dict], list_of_types_: list) ->
     return counted_types
 
 
-#
-# a = [{'amount': '23182',
-#              'currency_code': 'RUB',
-#              'currency_name': 'Ruble',
-#              'date': '2021-07-08T07:31:21Z',
-#              'description': 'Перевод с карты на карту',
-#              'from': 'Visa 0773092093872450',
-#              'id': '4234093',
-#              'state': 'EXECUTED',
-#              'to': 'Discover 8602781449570491'},
-#             {'amount': '18420',
-#              'currency_code': 'RUB',
-#              'currency_name': 'Ruble',
-#              'date': '2023-08-30T00:58:36Z',
-#              'description': 'Перевод с карты на карту',
-#              'from': 'Mastercard 3093124722348405',
-#              'id': '1473389',
-#              'state': 'EXECUTED',
-#              'to': 'American Express 6950002720800411'},
-#             {'amount': '21574',
-#              'currency_code': 'RUB',
-#              'currency_name': 'Ruble',
-#              'date': '2021-12-03T14:07:06Z',
-#              'description': 'Перевод со счета на счет',
-#              'from': 'Счет 22246813624466689601',
-#              'id': '212502',
-#              'state': 'EXECUTED',
-#              'to': 'Счет 60148056083328746527'},
-#             {'amount': '31741',
-#              'currency_code': 'RUB',
-#              'currency_name': 'Ruble',
-#              'date': '2023-10-20T21:00:39Z',
-#              'description': 'Перевод с карты на карту',
-#              'from': 'American Express 5313948287096164',
-#              'id': '3436241',
-#              'state': 'EXECUTED',
-#              'to': 'Discover 0329774489991288'},
-#             {'amount': '22818',
-#              'currency_code': 'RUB',
-#              'currency_name': 'Ruble',
-#              'date': '2022-03-25T01:54:48Z',
-#              'description': 'Перевод организации',
-#              'from': 'American Express 5289343085624249',
-#              'id': '3036684',
-#              'state': 'EXECUTED',
-#              'to': 'Счет 37876144219366357273'}]
-#
-# b = [
-#         {
-#             "date": "2019-08-26T10:50:58.294041",
-#             "description": "Перевод организации",
-#             "from": "Maestro 1596837868705199",
-#             "id": 441945886,
-#             "operationAmount": {"amount": "31957.58", "currency": {"code": "RUB", "name": "руб."}},
-#             "state": "EXECUTED",
-#             "to": "Счет 64686473678894779589",
-#         },
-#         {
-#             "date": "2019-07-03T18:35:29.512364",
-#             "description": "Перевод организации",
-#             "from": "MasterCard 7158300734726758",
-#             "id": 41428829,
-#             "operationAmount": {"amount": "8221.37", "currency": {"code": "USD", "name": "USD"}},
-#             "state": "EXECUTED",
-#             "to": "Счет 35383033474447895560",
-#         },
-#         {
-#             "date": "2018-06-30T02:08:58.425572",
-#             "description": "Перевод организации",
-#             "from": "Счет 75106830613657916952",
-#             "id": 939719570,
-#             "operationAmount": {"amount": "9824.07", "currency": {"code": "USD", "name": "USD"}},
-#             "state": "EXECUTED",
-#             "to": "Счет 11776614605963066702",
-#         },
-#         {
-#             "date": "2018-03-23T10:45:06.972075",
-#             "description": "Открытие вклада",
-#             "id": 587085106,
-#             "operationAmount": {"amount": "48223.05", "currency": {"code": "RUB", "name": "руб."}},
-#             "state": "EXECUTED",
-#             "to": "Счет 41421565395219882431",
-#         },
-#         {
-#             "date": "2019-04-04T23:20:05.206878",
-#             "description": "Перевод со счета на счет",
-#             "from": "Счет 19708645243227258542",
-#             "id": 142264268,
-#             "operationAmount": {"amount": "79114.93", "currency": {"code": "USD", "name": "USD"}},
-#             "state": "EXECUTED",
-#             "to": "Счет 75651667383060284188",
-#         }]
-#
-# c = [
-#         {
-#             "date": "2019-08-26T10:50:58.294041",
-#             "description": "Перевод организации",
-#             "from": "Maestro 1596837868705199",
-#             "id": 441945886,
-#             "operationAmount": {"amount": "31957.58", "currency": {"code": "RUB", "name": "руб."}},
-#             "state": "EXECUTED",
-#             "to": "Счет 64686473678894779589",
-#         }]
 
 
 def program_output_1(list_of_dicts: list[dict]) -> None:
@@ -266,7 +163,6 @@ def program_output_1(list_of_dicts: list[dict]) -> None:
     return
 
 
-# program_output_1(c)
 
 
 def program_output_2(list_of_dicts: list[dict]) -> None:
