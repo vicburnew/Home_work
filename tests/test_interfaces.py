@@ -88,16 +88,16 @@ def test_user_input_fbd(mock_in, output):
 @pytest.mark.parametrize(
     "mock_in, output",
     [
-        ("по возрастанию", True),
-        ("По возрастанию", True),
-        ("по убыванию", False),
-        ("ДА", False),
-        ("нет", False),
-        ("НЕТ", False),
-        ("asdad", False),
-        ("ывац", False),
-        ("12344", False),
-        ("", False),
+        ("по возрастанию", False),
+        ("По возрастанию", False),
+        ("по убыванию", True),
+        ("ДА", True),
+        ("нет", True),
+        ("НЕТ", True),
+        ("asdad", True),
+        ("ывац", True),
+        ("12344", True),
+        ("", True),
     ],
 )
 def test_user_input_sbda(mock_in, output):
