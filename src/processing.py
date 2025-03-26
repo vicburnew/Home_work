@@ -1,5 +1,3 @@
-
-
 def filter_by_state(list_of_dict: list[dict], state_by_default: str = "EXECUTED") -> list[dict]:
     """Функция принимает список словарей и опционально значение для ключа state
     (по умолчанию 'EXECUTED'). Функция возвращает новый список словарей, содержащий

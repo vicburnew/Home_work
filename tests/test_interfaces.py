@@ -210,6 +210,7 @@ def test_program_output_1(json_list_initial_short_2, mock_out_return_fixt) -> No
 
     assert result_str == mock_out_return_fixt
 
+
 def test_program_output_2(csv_excel_list_initial_short_2, mock_out_return_fixt_2) -> None:
     """Тестирование функции вывода результатов работы программы в консоль"""
     temp_stdout = sys.stdout
