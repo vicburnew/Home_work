@@ -26,13 +26,6 @@ def test_get_mask_card_number_negative_wrong_type_0(card_num):
         get_mask_card_number(card_num)
 
 
-# Отрицательное тестирование на несоответствие длины номера карты
-# @pytest.mark.parametrize("card_num", [(11112222333344445), (111122223333), (1)])
-# def test_get_mask_card_number_negative_incorrect_len_0(card_num):
-#     """Отрицательное тестирование с использованием параметрирования на вызов исключения ValueError"""
-#     with pytest.raises(ValueError):
-#         get_mask_card_number(card_num)
-
 
 # Тестирование функции get_mask_account ######
 
@@ -54,9 +47,3 @@ def test_get_mask_account_negative_wrong_type_0(acc_num):
         get_mask_account(acc_num)
 
 
-# Отрицательное тестирование на несоответствие длины номера счета
-# @pytest.mark.parametrize("acc_num", [(111122223333444455551), (111122223333), (1)])
-# def test_get_mask_account_negative_incorrect_len_0(acc_num):
-#     """Отрицательное тестирование с использованием параметрирования на вызов исключения ValueError"""
-#     with pytest.raises(ValueError):
-#         get_mask_account(acc_num)

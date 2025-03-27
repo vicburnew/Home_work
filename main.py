@@ -59,7 +59,7 @@ def main() -> None:
         specific_word = input("Введите слово для фильтрации: \n")
         filtered_list = filter_by_description(filtered_list, specific_word)
     print("Распечатываю итоговый список транзакций...\n")
-    # Подготовка списка категорий по умолчанию
+    # Подготовка списка категорий (по умолчанию - все категории)
     list_of_types = ["Открытие вклада", "Перевод с карты на карту", "Перевод организации", "Перевод со счета на счет"]
     # Вызов функции подсчета количества банковских операций
     counted_list_of_types = count_operations_by_type(filtered_list, list_of_types)

@@ -20,15 +20,6 @@ def test_user_welcome_input_1(mock_in, output):
         assert result == output
 
 
-# @pytest.mark.parametrize("mock_in, output",[("0",""), ("2",2), ("3",3)])
-# def test_user_welcome_input_2():
-#     """Отрицательный тест функции на ввод неправильного номера """
-#     mock_input_data = "a"
-#     with pytest.raises(UnboundLocalError):
-#         with patch("builtins.input", read_data=mock_input_data):
-#             builtins.input.return_value = mock_input_data
-#             user_welcome_input()
-#     # assert result == "Введен неправильный номер, повторите ввод! \n\n"
 
 
 @pytest.mark.parametrize(

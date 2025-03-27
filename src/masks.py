@@ -20,9 +20,6 @@ def get_mask_card_number(card_number: int) -> str:
 
     card_number_str = str(card_number)
 
-    # if len(card_number_str) != 16:
-    #     logger.error("Неверный номер карты")
-    #     raise ValueError("Неверный номер карты")
 
     logger.info("Начало маскирования номер карты")
 
@@ -47,9 +44,6 @@ def get_mask_account(user_account: int) -> str:
 
     account_str = str(user_account)
 
-    # if len(account_str) != 20:
-    #     logger.error("Неверная длина номера счета")
-    #     raise ValueError("Неверный номер счета")
 
     logger.info("Начало маскирования номера счета")
     account_mask = "**" + account_str[-4:]
