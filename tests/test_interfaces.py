@@ -1,0 +1,205 @@
+import builtins
+import sys
+from io import StringIO
+from unittest.mock import patch
+
+import pytest
+
+from src.interfaces import (count_operations_by_type, filter_by_description, program_output_1, program_output_2,
+                            user_input_fbd, user_input_rf, user_input_sbda, user_input_sw, user_status_input,
+                            user_welcome_input)
+
+
+@pytest.mark.parametrize("mock_in, output", [("1", 1), ("2", 2), ("3", 3)])
+def test_user_welcome_input_1(mock_in, output):
+    """Тесты функции на различные типы ввода"""
+    mock_input_data = mock_in
+    with patch("builtins.input", read_data=mock_input_data):
+        builtins.input.return_value = mock_input_data
+        result = user_welcome_input()
+        assert result == output
+
+
+
+
+@pytest.mark.parametrize(
+    "mock_in, output",
+    [
+        ("EXECUTED", "executed"),
+        ("Executed", "executed"),
+        ("CANCELED", "canceled"),
+        ("canceled", "canceled"),
+        ("Canceled", "canceled"),
+        ("pending", "pending"),
+        ("Pending", "pending"),
+        ("PENDING", "pending"),
+    ],
+)
+def test_user_status_input_1(mock_in, output):
+    """Тесты функции на различные типы ввода"""
+    mock_input_data = mock_in
+    with patch("builtins.input", read_data=mock_input_data):
+        builtins.input.return_value = mock_input_data
+        result = user_status_input()
+        assert result == output
+
+
+@pytest.mark.parametrize(
+    "mock_in, output",
+    [
+        ("да", True),
+        ("Да", True),
+        ("ДА", True),
+        ("нет", False),
+        ("НЕТ", False),
+        ("asdad", False),
+        ("ывац", False),
+        ("12344", False),
+        ("", False),
+    ],
+)
+def test_user_input_fbd(mock_in, output):
+    """Тесты функции на различные типы ввода"""
+    mock_input_data = mock_in
+    with patch("builtins.input", read_data=mock_input_data):
+        builtins.input.return_value = mock_input_data
+        result = user_input_fbd()
+        assert result == output
+
+
+@pytest.mark.parametrize(
+    "mock_in, output",
+    [
+        ("по возрастанию", False),
+        ("По возрастанию", False),
+        ("по убыванию", True),
+        ("ДА", True),
+        ("нет", True),
+        ("НЕТ", True),
+        ("asdad", True),
+        ("ывац", True),
+        ("12344", True),
+        ("", True),
+    ],
+)
+def test_user_input_sbda(mock_in, output):
+    """Тесты функции на различные типы ввода"""
+    mock_input_data = mock_in
+    with patch("builtins.input", read_data=mock_input_data):
+        builtins.input.return_value = mock_input_data
+        result = user_input_sbda()
+        assert result == output
+
+
+@pytest.mark.parametrize(
+    "mock_in, output",
+    [
+        ("да", True),
+        ("Да", True),
+        ("ДА", True),
+        ("нет", False),
+        ("НЕТ", False),
+        ("asdad", False),
+        ("ывац", False),
+        ("12344", False),
+        ("", False),
+    ],
+)
+def test_user_input_rf(mock_in, output):
+    """Тесты функции на различные типы ввода"""
+    mock_input_data = mock_in
+    with patch("builtins.input", read_data=mock_input_data):
+        builtins.input.return_value = mock_input_data
+        result = user_input_rf()
+        assert result == output
+
+
+@pytest.mark.parametrize(
+    "mock_in, output",
+    [
+        ("да", True),
+        ("Да", True),
+        ("ДА", True),
+        ("нет", False),
+        ("НЕТ", False),
+        ("asdad", False),
+        ("ывац", False),
+        ("12344", False),
+        ("", False),
+    ],
+)
+def test_user_input_sw(mock_in, output):
+    """Тесты функции на различные типы ввода"""
+    mock_input_data = mock_in
+    with patch("builtins.input", read_data=mock_input_data):
+        builtins.input.return_value = mock_input_data
+        result = user_input_sw()
+        assert result == output
+
+
+def test_filter_by_description_1(filter_by_description_list_initial, filter_by_description_list_final):
+    """Тесты функции на различные типы ввода"""
+    assert filter_by_description(filter_by_description_list_initial, "перевод") == filter_by_description_list_final
+
+
+def test_filter_by_description_2(filter_by_description_list_initial, filter_by_description_list_final):
+    """Тесты функции на различные типы ввода"""
+    assert filter_by_description(filter_by_description_list_initial, "") == filter_by_description_list_initial
+
+
+def test_filter_by_description_3(filter_by_description_list_initial, filter_by_description_list_final):
+    """Тесты функции на различные типы ввода"""
+    assert filter_by_description(filter_by_description_list_initial, " ") == filter_by_description_list_initial
+
+
+def test_filter_by_description_4(filter_by_description_list_initial, filter_by_description_list_final):
+    """Тесты функции на различные типы ввода"""
+    assert filter_by_description(filter_by_description_list_initial, "aAS") == filter_by_description_list_initial
+
+
+def test_filter_by_description_5(filter_by_description_list_initial, filter_by_description_list_final):
+    """Тесты функции на различные типы ввода"""
+    assert filter_by_description(filter_by_description_list_initial, "ПЕРЕВОД") == filter_by_description_list_final
+
+
+def test_count_operations_by_type_1(filter_by_description_list_final, list_of_types_fixt, list_of_types_return_fixt):
+    """Тестирование функции с различными параметрами"""
+    assert count_operations_by_type(filter_by_description_list_final, list_of_types_fixt) == list_of_types_return_fixt
+
+
+def test_count_operations_by_type_2(filter_by_description_list_final):
+    """Тестирование функции с различными параметрами"""
+    assert count_operations_by_type(filter_by_description_list_final, ["Перевод организации"]) == {
+        "Перевод организации": 1
+    }
+
+
+def test_count_operations_by_type_3(filter_by_description_list_final):
+    """Тестирование функции с различными параметрами"""
+    assert count_operations_by_type(
+        filter_by_description_list_final, ["Перевод организации", "Перевод с карты на карту"]
+    ) == {"Перевод организации": 1, "Перевод с карты на карту": 3}
+
+
+def test_program_output_1(json_list_initial_short_2, mock_out_return_fixt) -> None:
+    """Тестирование функции вывода результатов работы программы в консоль"""
+    temp_stdout = sys.stdout
+    result = StringIO()
+    sys.stdout = result
+    program_output_1(json_list_initial_short_2)
+    sys.stdout = temp_stdout
+    result_str = result.getvalue()
+
+    assert result_str == mock_out_return_fixt
+
+
+def test_program_output_2(csv_excel_list_initial_short_2, mock_out_return_fixt_2) -> None:
+    """Тестирование функции вывода результатов работы программы в консоль"""
+    temp_stdout = sys.stdout
+    result = StringIO()
+    sys.stdout = result
+    program_output_2(csv_excel_list_initial_short_2)
+    sys.stdout = temp_stdout
+    result_str = result.getvalue()
+
+    assert result_str == mock_out_return_fixt_2

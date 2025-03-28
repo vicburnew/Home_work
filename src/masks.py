@@ -3,6 +3,7 @@ import logging
 # Создание объекта логера для записи событий
 logger = logging.getLogger("masks")
 logger.setLevel(logging.DEBUG)
+# При запуске Pytest исправить путь к имени файла: "./logs/masks.log"
 file_handler = logging.FileHandler("./logs/masks.log", "w", encoding="utf-8")
 file_formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 file_handler.setFormatter(file_formatter)
@@ -19,9 +20,6 @@ def get_mask_card_number(card_number: int) -> str:
 
     card_number_str = str(card_number)
 
-    if len(card_number_str) != 16:
-        logger.error("Неверный номер карты")
-        raise ValueError("Неверный номер карты")
 
     logger.info("Начало маскирования номер карты")
 
@@ -46,9 +44,6 @@ def get_mask_account(user_account: int) -> str:
 
     account_str = str(user_account)
 
-    if len(account_str) != 20:
-        logger.error("Неверная длина номера счета")
-        raise ValueError("Неверный номер счета")
 
     logger.info("Начало маскирования номера счета")
     account_mask = "**" + account_str[-4:]

@@ -1,15 +1,16 @@
 from src.masks import get_mask_account, get_mask_card_number
 
-# from tests.conftest import card_types
 
 
 def mask_account_card(input_long_data: str) -> str:
     """Функция, которая принимает один аргумент — строку,
     содержащую тип и номер карты или счета, и возвращает строку
     с замаскированным номером"""
+    long_input_masked = ""
 
-    if not isinstance(input_long_data, str):
-        raise TypeError("Ошибка типа данных - требуется формат -Строка-")
+
+    if input_long_data == "":
+        return long_input_masked
 
     # переводим вход в нижний регистр
     input_long_data_low = input_long_data.lower()
@@ -19,12 +20,6 @@ def mask_account_card(input_long_data: str) -> str:
     num_code = int(input_data_list[-1])
     # проверяем, что у нас было на входе - карта или счет
 
-    card_types = ["счет", "visa", "mir", "maestro", "mastercard"]
-    if input_data_list[0] not in card_types:
-        raise ValueError("Неверный тип ввода данных- введите слово Счет или название карты")
-
-    if len(input_long_data) == 0:
-        raise IndexError("Неверный номер карты - введите данные в корректном формате")
 
     if input_data_list[0] != "счет":
         # если была карта, то вызываем функцию маскировки номера карты, на
@@ -52,20 +47,6 @@ def get_date(long_date_format: str) -> str:
 
     long_date_norm = long_date_format.strip()
 
-    if len(long_date_norm) != 26:
-        raise ValueError("Неверный тип ввода данных")
-
-    if long_date_norm[10] != "T":
-        raise ValueError("Неверный тип ввода данных")
-
-    if long_date_norm[13] != ":":
-        raise ValueError("Неверный тип ввода данных")
-
-    if long_date_norm[16] != ":":
-        raise ValueError("Неверный тип ввода данных")
-
-    if long_date_norm[19] != ".":
-        raise ValueError("Неверный тип ввода данных")
 
     initial_date = long_date_norm[:10]
     year = initial_date[:4]

@@ -7,8 +7,10 @@ from src.reading_csv_excel import read_csv_file, read_excel_file
 
 # Тестирование функции read_csv_file
 
-mock_data = ("id;state;date;amount;currency_name;currency_code;from;to;description\n650703;EXECUTED;2023-09-05T11:30"
-             ":32Z;16210;Sol;PEN;Счет 58803664561298323391;Счет 39745660563456619397;Перевод организации")
+mock_data = (
+    "id;state;date;amount;currency_name;currency_code;from;to;description\n650703;EXECUTED;2023-09-05T11:30"
+    ":32Z;16210;Sol;PEN;Счет 58803664561298323391;Счет 39745660563456619397;Перевод организации"
+)
 
 
 def test_read_csv_file_1(mock_csv_fixt):
